@@ -18,10 +18,10 @@ import java.util.regex.Pattern;
 public class ChatBlock
 {
     private static final int lineLength = 319;
-    private ArrayList<Boolean> columnFlexes = new ArrayList<Boolean>();
-    private ArrayList<Integer> columnSizes = new ArrayList<Integer>();
-    private ArrayList<String> columnAlignments = new ArrayList<String>();
-    private LinkedList<String[]> rows = new LinkedList<String[]>();
+    private final ArrayList<Boolean> columnFlexes = new ArrayList<Boolean>();
+    private final ArrayList<Integer> columnSizes = new ArrayList<Integer>();
+    private final ArrayList<String> columnAlignments = new ArrayList<String>();
+    private final LinkedList<String[]> rows = new LinkedList<String[]>();
     private String color = "";
     /**
      *

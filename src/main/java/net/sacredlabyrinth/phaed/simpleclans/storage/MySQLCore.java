@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sacredlabyrinth.phaed.simpleclans.SimpleClans;
 
@@ -96,9 +97,9 @@ public class MySQLCore implements DBCore
                 connection.close();
             }
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
-            log.severe("Failed to close database connection! " + e.getMessage());
+            log.log(Level.SEVERE, "Failed to close database connection! {0}", e.getMessage());
         }
     }
 

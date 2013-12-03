@@ -79,10 +79,6 @@ permissions:
     description: Can start a rivalry with another clan
   simpleclans.leader.modtag:
     description: Can modify his clan's tag
-  simpleclans.leader.cape:
-    description: Can set his clan's cape url
-  simpleclans.member.cape-toggle:
-    description: Can toggle his cape on/off
   simpleclans.member.kills:
     description: Can view his and other's kills
   simpleclans.member.tag-toggle:

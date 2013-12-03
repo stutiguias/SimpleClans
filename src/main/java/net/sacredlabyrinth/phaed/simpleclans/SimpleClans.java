@@ -42,7 +42,7 @@ public class SimpleClans extends JavaPlugin {
     }
 
     /**
-     * @return the logger
+     * @param msg
      */
     public static void debug(String msg) {
         if (getInstance().getSettingsManager().isDebugging()) {
@@ -164,6 +164,7 @@ public class SimpleClans extends JavaPlugin {
     }
 
     /**
+     * @param msg
      * @return the lang
      */
     public String getLang(String msg) {
