@@ -13,3 +13,6 @@ SimpleClans was borne out of the need for a self-sustaining drop-and-go system t
  
 Phaed
 
+All description.
+
+http://dev.bukkit.org/bukkit-plugins/simpleclans/pages/simple-clans1-description/
