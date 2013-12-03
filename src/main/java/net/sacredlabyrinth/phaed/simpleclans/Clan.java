@@ -877,10 +877,6 @@ public class Clan implements Serializable, Comparable<Clan> {
         setCapeUrl(url);
 
         SimpleClans.getInstance().getStorageManager().updateClan(this);
-
-        for (String member : members) {
-            SimpleClans.getInstance().getSpoutPluginManager().processPlayer(member);
-        }
     }
 
     /**
@@ -913,7 +909,6 @@ public class Clan implements Serializable, Comparable<Clan> {
 
         SimpleClans.getInstance().getStorageManager().updateClanPlayer(cp);
         SimpleClans.getInstance().getStorageManager().updateClan(this);
-        SimpleClans.getInstance().getSpoutPluginManager().processPlayer(cp.getName());
 
         // add clan permission
         SimpleClans.getInstance().getPermissionsManager().addClanPermissions(cp);
@@ -948,7 +943,6 @@ public class Clan implements Serializable, Comparable<Clan> {
 
         SimpleClans.getInstance().getStorageManager().updateClanPlayer(cp);
         SimpleClans.getInstance().getStorageManager().updateClan(this);
-        SimpleClans.getInstance().getSpoutPluginManager().processPlayer(cp.getName());
 
 
         Player matched = Helper.matchOnePlayer(playerName);
@@ -971,7 +965,6 @@ public class Clan implements Serializable, Comparable<Clan> {
 
         SimpleClans.getInstance().getStorageManager().updateClanPlayer(cp);
         SimpleClans.getInstance().getStorageManager().updateClan(this);
-        SimpleClans.getInstance().getSpoutPluginManager().processPlayer(cp.getName());
 
         // add clan permission
         SimpleClans.getInstance().getPermissionsManager().addClanPermissions(cp);
@@ -989,7 +982,6 @@ public class Clan implements Serializable, Comparable<Clan> {
 
         SimpleClans.getInstance().getStorageManager().updateClanPlayer(cp);
         SimpleClans.getInstance().getStorageManager().updateClan(this);
-        SimpleClans.getInstance().getSpoutPluginManager().processPlayer(cp.getName());
 
         // add clan permission
         SimpleClans.getInstance().getPermissionsManager().addClanPermissions(cp);
@@ -1173,14 +1165,6 @@ public class Clan implements Serializable, Comparable<Clan> {
      */
     public void audioAnnounce(String playerName, String msg) {
         clanAnnounce(playerName, msg);
-
-        for (String member : members) {
-            Player pl = SimpleClans.getInstance().getServer().getPlayer(member);
-
-            if (pl != null) {
-                SimpleClans.getInstance().getSpoutPluginManager().playAlert(pl);
-            }
-        }
     }
 
     /**
@@ -1239,7 +1223,6 @@ public class Clan implements Serializable, Comparable<Clan> {
                 cp.setLeader(false);
 
                 SimpleClans.getInstance().getStorageManager().updateClanPlayer(cp);
-                SimpleClans.getInstance().getSpoutPluginManager().processPlayer(cp.getName());
             }
         }
 
@@ -1265,6 +1248,7 @@ public class Clan implements Serializable, Comparable<Clan> {
 
         SimpleClans.getInstance().getServer().getScheduler().scheduleSyncDelayedTask(SimpleClans.getInstance(), new Runnable() {
 
+            @Override
             public void run() {
                 SimpleClans.getInstance().getClanManager().removeClan(thisOne.getTag());
                 SimpleClans.getInstance().getStorageManager().deleteClan(thisOne);

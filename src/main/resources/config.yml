@@ -40,12 +40,6 @@ settings:
     - '4'
     server-name: '&9MinecraftServer'
     new-clan-verification-required: true
-spout:
-    in-game-tags: true
-    alert-url: ''
-    default-cape-url: http://i.imgur.com/pjqV6.png
-    enable-clan-capes: true
-    in-game-tags-colored: false
 commands:
     more: more
     ally: ally

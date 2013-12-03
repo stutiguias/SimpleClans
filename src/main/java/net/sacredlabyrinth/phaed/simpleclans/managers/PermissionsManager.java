@@ -24,7 +24,7 @@ public final class PermissionsManager
     /**
      *
      */
-    private SimpleClans plugin;
+    private final SimpleClans plugin;
 
     public static Permission permission = null;
     public static Economy economy = null;

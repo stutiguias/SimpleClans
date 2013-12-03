@@ -22,13 +22,12 @@ import java.util.logging.Logger;
  */
 public class SimpleClans extends JavaPlugin {
 
-    private ArrayList<String> messages = new ArrayList<String>();
+    private final ArrayList<String> messages = new ArrayList<String>();
     private static SimpleClans instance;
     private static final Logger logger = Logger.getLogger("Minecraft");
     private ClanManager clanManager;
     private RequestManager requestManager;
     private StorageManager storageManager;
-    private SpoutPluginManager spoutPluginManager;
     private SettingsManager settingsManager;
     private PermissionsManager permissionsManager;
     private CommandManager commandManager;
@@ -75,7 +74,6 @@ public class SimpleClans extends JavaPlugin {
 
         logger.info(MessageFormat.format(lang.getString("version.loaded"), getDescription().getName(), getDescription().getVersion()));
 
-        spoutPluginManager = new SpoutPluginManager();
         permissionsManager = new PermissionsManager();
         requestManager = new RequestManager();
         clanManager = new ClanManager();
@@ -86,7 +84,6 @@ public class SimpleClans extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SCEntityListener(), this);
         getServer().getPluginManager().registerEvents(new SCPlayerListener(), this);
 
-        spoutPluginManager.processAllPlayers();
         permissionsManager.loadPermissions();
         pullMessages();
     }
@@ -143,13 +140,6 @@ public class SimpleClans extends JavaPlugin {
      */
     public StorageManager getStorageManager() {
         return storageManager;
-    }
-
-    /**
-     * @return the spoutManager
-     */
-    public SpoutPluginManager getSpoutPluginManager() {
-        return spoutPluginManager;
     }
 
     /**

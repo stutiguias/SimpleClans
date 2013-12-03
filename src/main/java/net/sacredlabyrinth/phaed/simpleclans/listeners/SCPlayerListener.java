@@ -287,7 +287,6 @@ public class SCPlayerListener implements Listener
 
                 plugin.getClanManager().updateLastSeen(player);
                 plugin.getClanManager().updateDisplayName(player);
-                plugin.getSpoutPluginManager().processPlayer(player.getName());
                 SimpleClans.getInstance().getPermissionsManager().addPlayerPermissions(cp);
 
                 if (plugin.getSettingsManager().isBbShowOnLogin())
@@ -380,32 +379,5 @@ public class SCPlayerListener implements Listener
 
         plugin.getClanManager().updateLastSeen(event.getPlayer());
     }
-
-    /**
-     * @param event
-     */
-    @EventHandler
-    public void onPlayerTeleport(PlayerTeleportEvent event)
-    {
-        if (event.isCancelled())
-        {
-            return;
-        }
-
-        if (plugin.getSettingsManager().isBlacklistedWorld(event.getPlayer().getLocation().getWorld().getName()))
-        {
-            return;
-        }
-
-        plugin.getSpoutPluginManager().processPlayer(event.getPlayer());
-    }
-
-    /**
-     * @param event
-     */
-    @EventHandler
-    public void onPlayerToggleSneak(PlayerToggleSneakEvent event)
-    {
-        plugin.getSpoutPluginManager().processPlayer(event.getPlayer());
-    }
+    
 }

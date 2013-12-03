@@ -17,9 +17,9 @@ import java.util.*;
 public final class ClanManager
 {
 
-    private SimpleClans plugin;
-    private HashMap<String, Clan> clans = new HashMap<String, Clan>();
-    private HashMap<String, ClanPlayer> clanPlayers = new HashMap<String, ClanPlayer>();
+    private final SimpleClans plugin;
+    private final HashMap<String, Clan> clans = new HashMap<String, Clan>();
+    private final HashMap<String, ClanPlayer> clanPlayers = new HashMap<String, ClanPlayer>();
 
     /**
      *
@@ -81,7 +81,6 @@ public final class ClanManager
 
         SimpleClans.getInstance().getPermissionsManager().updateClanPermissions(clan);
 
-        plugin.getSpoutPluginManager().processPlayer(player.getName());
     }
 
     /**
