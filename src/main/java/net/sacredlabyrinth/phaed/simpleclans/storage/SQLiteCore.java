@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.sacredlabyrinth.phaed.simpleclans.SimpleClans;
 
@@ -250,7 +251,7 @@ public class SQLiteCore implements DBCore
         }
         catch (SQLException e)
         {
-            SimpleClans.getLog().severe("Failed to check if colum '" + colum + "' exists: " + e.getMessage());
+            SimpleClans.getLog().log(Level.SEVERE, "Failed to check if colum ''{0}'' exists: {1}", new Object[]{colum, e.getMessage()});
             return false;
         }
     }

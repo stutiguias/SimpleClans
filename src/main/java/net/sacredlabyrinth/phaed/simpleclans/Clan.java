@@ -27,24 +27,20 @@ public class Clan implements Serializable, Comparable<Clan> {
     private boolean friendlyFire;
     private long founded;
     private long lastUsed;
-    private String capeUrl;
-    private List<String> allies = new ArrayList<String>();
-    private List<String> rivals = new ArrayList<String>();
-    private List<String> bb = new ArrayList<String>();
-    private List<String> members = new ArrayList<String>();
-    private HashMap<String, Clan> warringClans = new HashMap<String, Clan>();
+    private List<String> allies = new ArrayList<>();
+    private List<String> rivals = new ArrayList<>();
+    private List<String> bb = new ArrayList<>();
+    private final List<String> members = new ArrayList<>();
+    private final HashMap<String, Clan> warringClans = new HashMap<>();
     private int homeX = 0;
     private int homeY = 0;
     private int homeZ = 0;
     private String homeWorld = "";
-    private boolean allowWithdraw = false;
-    private boolean allowDeposit = true;
 
     /**
      *
      */
     public Clan() {
-        this.capeUrl = "";
         this.tag = "";
     }
 
@@ -60,7 +56,6 @@ public class Clan implements Serializable, Comparable<Clan> {
         this.founded = (new Date()).getTime();
         this.lastUsed = (new Date()).getTime();
         this.verified = verified;
-        this.capeUrl = "";
 
         if (SimpleClans.getInstance().getSettingsManager().isClanFFOnByDefault()) {
             friendlyFire = true;
@@ -447,24 +442,6 @@ public class Clan implements Serializable, Comparable<Clan> {
      */
     public void setVerified(boolean verified) {
         this.verified = verified;
-    }
-
-    /**
-     * Returns the cape url for this clan
-     *
-     * @return the capeUrl
-     */
-    public String getCapeUrl() {
-        return capeUrl;
-    }
-
-    /**
-     * (used internally)
-     *
-     * @param capeUrl the capeUrl to set
-     */
-    public void setCapeUrl(String capeUrl) {
-        this.capeUrl = capeUrl;
     }
 
     /**
@@ -874,8 +851,6 @@ public class Clan implements Serializable, Comparable<Clan> {
      * @param url
      */
     public void setClanCape(String url) {
-        setCapeUrl(url);
-
         SimpleClans.getInstance().getStorageManager().updateClan(this);
     }
 
@@ -1444,31 +1419,4 @@ public class Clan implements Serializable, Comparable<Clan> {
         return plugin.getSettingsManager().getTagBracketColor() + plugin.getSettingsManager().getTagBracketLeft() + plugin.getSettingsManager().getTagDefaultColor() + getColorTag() + plugin.getSettingsManager().getTagBracketColor() + plugin.getSettingsManager().getTagBracketRight() + plugin.getSettingsManager().getTagSeparatorColor() + plugin.getSettingsManager().getTagSeparator();
     }
 
-    /**
-     * @return the allowWithdraw
-     */
-    public boolean isAllowWithdraw() {
-        return allowWithdraw;
-    }
-
-    /**
-     * @param allowWithdraw the allowWithdraw to set
-     */
-    public void setAllowWithdraw(boolean allowWithdraw) {
-        this.allowWithdraw = allowWithdraw;
-    }
-
-    /**
-     * @return the allowDeposit
-     */
-    public boolean isAllowDeposit() {
-        return allowDeposit;
-    }
-
-    /**
-     * @param allowDeposit the allowDeposit to set
-     */
-    public void setAllowDeposit(boolean allowDeposit) {
-        this.allowDeposit = allowDeposit;
-    }
 }

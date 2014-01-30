@@ -29,7 +29,6 @@ public final class PermissionsManager
     public static Permission permission = null;
     public static Economy economy = null;
     public static Chat chat = null;
-    private mChatSuite mchat = null;
 
     private HashMap<String, List<String>> permissions = new HashMap<String, List<String>>();
     private HashMap<Player, PermissionAttachment> permAttaches = new HashMap<Player, PermissionAttachment>();
@@ -41,7 +40,6 @@ public final class PermissionsManager
     public PermissionsManager()
     {
         plugin = SimpleClans.getInstance();
-        detectMChat();
 
         try
         {
@@ -58,11 +56,6 @@ public final class PermissionsManager
         }
     }
 
-    public mChatSuite getMChat()
-    {
-        return mchat;
-    }
-
     /**
      * Whether exonomy plugin exists and is enabled
      *
@@ -70,11 +63,7 @@ public final class PermissionsManager
      */
     public boolean hasEconomy()
     {
-        if (economy != null && economy.isEnabled())
-        {
-            return true;
-        }
-        return false;
+        return economy != null && economy.isEnabled();
     }
 
     /**
@@ -267,37 +256,6 @@ public final class PermissionsManager
     }
 
     /**
-     * Sets the mChat clan tag
-     *
-     * @param player
-     * @param value
-     */
-    public void addSetMChatClanTag(Player player, String value)
-    {
-        if(mchat != null)
-        {
-            API api = mchat.getAPI();
-
-            api.addPlayerVar(player.getName(), "clan", value);
-        }
-    }
-
-    /**
-     * Clears the mChat clan tag
-     *
-     * @param player
-     */
-    public void clearSetMChatClanTag(Player player)
-    {
-        if(mchat != null)
-        {
-            API api = mchat.getAPI();
-
-            api.addPlayerVar(player.getName(), "clan", "");
-        }
-    }
-
-    /**
      * Gives the player permissions linked to a clan
      *
      * @param cp
@@ -386,16 +344,6 @@ public final class PermissionsManager
         }
     }
 
-    private void detectMChat()
-    {
-        Plugin test = plugin.getServer().getPluginManager().getPlugin("mChatSuite");
-
-        if (test != null)
-        {
-            mchat = (mChatSuite) test;
-        }
-    }
-
     private Boolean setupPermissions()
     {
         RegisteredServiceProvider<Permission> permissionProvider = plugin.getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
@@ -473,17 +421,6 @@ public final class PermissionsManager
                 System.out.println(e.getMessage());
             }
         }
-
-        // add in colorMe color
-
-        /*
-        Plugin colorMe = plugin.getServer().getPluginManager().getPlugin("ColorMe");
-
-        if (colorMe != null)
-        {
-            out += ((ColorMe) colorMe).getColor(p.getName());
-        }
-        */
 
         return out;
     }

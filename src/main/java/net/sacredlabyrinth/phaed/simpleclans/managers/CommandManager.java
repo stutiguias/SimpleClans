@@ -35,7 +35,6 @@ public final class CommandManager
     private TrustCommand trustCommand;
     private UntrustCommand untrustCommand;
     private PromoteCommand promoteCommand;
-    private CapeCommand capeCommand;
     private DemoteCommand demoteCommand;
     private ClanffCommand clanffCommand;
     private FfCommand ffCommand;
@@ -52,7 +51,6 @@ public final class CommandManager
     private KillsCommand killsCommand;
     private MostKilledCommand mostKilledCommand;
     private SetRankCommand setRankCommand;
-    private BankCommand bankCommand;
 
     /**
      *
@@ -82,7 +80,6 @@ public final class CommandManager
         trustCommand = new TrustCommand();
         untrustCommand = new UntrustCommand();
         promoteCommand = new PromoteCommand();
-        capeCommand = new CapeCommand();
         demoteCommand = new DemoteCommand();
         clanffCommand = new ClanffCommand();
         ffCommand = new FfCommand();
@@ -98,7 +95,6 @@ public final class CommandManager
         killsCommand = new KillsCommand();
         mostKilledCommand = new MostKilledCommand();
         setRankCommand = new SetRankCommand();
-        bankCommand = new BankCommand();
     }
 
     /**
@@ -140,10 +136,6 @@ public final class CommandManager
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("list.command")))
                     {
                         listCommand.execute(player, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("bank.command")))
-                    {
-                        bankCommand.execute(player, subargs);
                     }
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("profile.command")))
                     {
@@ -204,10 +196,6 @@ public final class CommandManager
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("toggle.command")))
                     {
                         toggleCommand.execute(player, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("cape.command")))
-                    {
-                        capeCommand.execute(player, subargs);
                     }
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("invite.command")))
                     {

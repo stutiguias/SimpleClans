@@ -1,7 +1,7 @@
 name: SimpleClans
 main: net.sacredlabyrinth.phaed.simpleclans.SimpleClans
 version: ${project.version}
-softdepend: [Spout, VanishNoPacket, Permissions, PermissionsBukkit, Vault, PermissionsEx, mChat, mChatSuite]
+softdepend: [Spout, VanishNoPacket, Permissions, PermissionsBukkit, Vault, PermissionsEx]
 permissions:
   simpleclans.admin.permissions:
     description: Can grant clans permissions
@@ -107,8 +107,6 @@ permissions:
     description: Can start wars
   simpleclans.leader.setrank:
     description: Can set ranks
-  simpleclans.member.bank:
-    description: Can use banks
   simpleclans.admin.*:
     description: Permissions for admins
     default: op
@@ -160,7 +158,6 @@ permissions:
       simpleclans.member.ally: true
       simpleclans.member.home: true
       simpleclans.member.kills: true
-      simpleclans.member.bank: true
   simpleclans.leader.*:
     description: Permissions for those who can be clan leaders
     default: false
@@ -169,7 +166,6 @@ permissions:
       simpleclans.leader.ally: true
       simpleclans.leader.rival: true
       simpleclans.leader.modtag: true
-      simpleclans.leader.cape: true
       simpleclans.leader.invite: true
       simpleclans.leader.kick: true
       simpleclans.leader.promote: true
