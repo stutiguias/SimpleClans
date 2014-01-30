@@ -1,7 +1,5 @@
 package net.sacredlabyrinth.phaed.simpleclans.managers;
 
-import in.mDev.MiracleM4n.mChatSuite.api.API;
-import in.mDev.MiracleM4n.mChatSuite.mChatSuite;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -10,7 +8,6 @@ import net.sacredlabyrinth.phaed.simpleclans.ClanPlayer;
 import net.sacredlabyrinth.phaed.simpleclans.SimpleClans;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.util.HashMap;

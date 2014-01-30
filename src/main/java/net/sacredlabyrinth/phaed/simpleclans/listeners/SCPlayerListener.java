@@ -309,13 +309,6 @@ public class SCPlayerListener implements Listener
             }
         }, 1);
 
-        if (event.getPlayer().isOp())
-        {
-            for (String message : plugin.getMessages())
-            {
-                event.getPlayer().sendMessage(ChatColor.YELLOW + message);
-            }
-        }
     }
 
     /**

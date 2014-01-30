@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  */
 public class SimpleClans extends JavaPlugin {
 
-    private final ArrayList<String> messages = new ArrayList<String>();
+    private final ArrayList<String> messages = new ArrayList<>();
     private static SimpleClans instance;
     private static final Logger logger = Logger.getLogger("Minecraft");
     private ClanManager clanManager;
@@ -85,7 +85,6 @@ public class SimpleClans extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SCPlayerListener(), this);
 
         permissionsManager.loadPermissions();
-        pullMessages();
     }
 
     @Override
@@ -93,32 +92,6 @@ public class SimpleClans extends JavaPlugin {
         getServer().getScheduler().cancelTasks(this);
         getStorageManager().closeConnection();
         getPermissionsManager().savePermissions();
-    }
-
-    public void pullMessages()
-    {
-        if (getSettingsManager().isDisableMessages())
-        {
-            return;
-        }
-
-        try
-        {
-            BufferedReader in = new BufferedReader(new InputStreamReader(new URL("http://minecraftcubed.net/pluginmessage/").openStream()));
-
-            String message;
-            while ((message = in.readLine()) != null)
-            {
-                messages.add(message);
-                getServer().getConsoleSender().sendMessage(ChatColor.YELLOW + message);
-            }
-            in.close();
-
-        }
-        catch (IOException e)
-        {
-            // do nothing
-        }
     }
 
     /**
@@ -173,10 +146,5 @@ public class SimpleClans extends JavaPlugin {
 
     public TeleportManager getTeleportManager() {
         return teleportManager;
-    }
-
-    public ArrayList<String> getMessages()
-    {
-        return messages;
     }
 }
