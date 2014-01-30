@@ -5,6 +5,7 @@ This is lite version of SimpleClans, just to run on my server ! :)
 * Remove SPOUT SUPPORT 
 * Remove Bank 
 * Remove Mchat Support
+* Remove Cape
 
 ![SimpleClansLogo](http://sacredlabyrinth.net/store/sc_logo.png)
 
