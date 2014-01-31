@@ -6,8 +6,10 @@ This is lite version of SimpleClans, just to run on my server ! :)
 * Remove Bank 
 * Remove Mchat Support
 * Remove Cape
-* Remove Verify Cla
+* Remove Verify Clan
 * Remove Ban/UnBan
+* Remove Vitals
+* Remove Coords
 
 ![SimpleClansLogo](http://sacredlabyrinth.net/store/sc_logo.png)
 
