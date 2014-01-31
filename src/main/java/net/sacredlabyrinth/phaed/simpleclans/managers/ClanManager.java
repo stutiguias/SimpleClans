@@ -69,9 +69,7 @@ public final class ClanManager
     {
         ClanPlayer cp = getCreateClanPlayer(player.getName());
 
-        boolean verified = !plugin.getSettingsManager().isRequireVerification() || plugin.getPermissionsManager().has(player, "simpleclans.mod.verify");
-
-        Clan clan = new Clan(colorTag, name, verified);
+        Clan clan = new Clan(colorTag, name);
         clan.addPlayerToClan(cp);
         cp.setLeader(true);
 
@@ -325,36 +323,6 @@ public final class ClanManager
                 plugin.getStorageManager().updateClan(clan);
             }
         }
-    }
-
-    /**
-     * @param playerName
-     */
-    public void ban(String playerName)
-    {
-        ClanPlayer cp = getClanPlayer(playerName);
-        Clan clan = cp.getClan();
-
-        if (clan != null)
-        {
-            if (clan.getSize() == 1)
-            {
-                clan.disband();
-            }
-            else
-            {
-                cp.setClan(null);
-                cp.addPastClan(clan.getColorTag() + (cp.isLeader() ? ChatColor.DARK_RED + "*" : ""));
-                cp.setLeader(false);
-                cp.setJoinDate(0);
-                clan.removeMember(playerName);
-
-                plugin.getStorageManager().updateClanPlayer(cp);
-                plugin.getStorageManager().updateClan(clan);
-            }
-        }
-
-        plugin.getSettingsManager().addBanned(playerName);
     }
 
     /**
@@ -971,38 +939,6 @@ public final class ClanManager
         }
 
         double price = plugin.getSettingsManager().getHomeTeleportPriceSet();
-
-        if (plugin.getPermissionsManager().hasEconomy())
-        {
-            if (plugin.getPermissionsManager().playerHasMoney(player, price))
-            {
-                plugin.getPermissionsManager().playerChargeMoney(player, price);
-                player.sendMessage(ChatColor.RED + MessageFormat.format(plugin.getLang("account.has.been.debited"), price));
-            }
-            else
-            {
-                player.sendMessage(ChatColor.RED + plugin.getLang("not.sufficient.money"));
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Purchase clan verification
-     *
-     * @param player
-     * @return
-     */
-    public boolean purchaseVerification(Player player)
-    {
-        if (!plugin.getSettingsManager().isePurchaseVerification())
-        {
-            return true;
-        }
-
-        double price = plugin.getSettingsManager().getVerificationPrice();
 
         if (plugin.getPermissionsManager().hasEconomy())
         {

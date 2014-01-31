@@ -107,7 +107,7 @@ public class SCEntityListener implements Listener
                 double multipier = plugin.getSettingsManager().getKDRMultipliesPerKill();
                 float kdr = acp.getKDR();
 
-                if (vcp.getClan() == null || acp.getClan() == null || !vcp.getClan().isVerified() || !acp.getClan().isVerified())
+                if (vcp.getClan() == null || acp.getClan() == null)
                 {
                     acp.addCivilianKill();
                     plugin.getStorageManager().insertKill(attacker, acp.getTag(), victim, "", "c");

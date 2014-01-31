@@ -35,8 +35,6 @@ public class KillsCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (cp.isTrusted())
                     {
                         String polledPlayerName = player.getName();
@@ -88,11 +86,6 @@ public class KillsCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.stats"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
             }
             else
             {

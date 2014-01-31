@@ -13,44 +13,41 @@ import java.text.MessageFormat;
  */
 public final class CommandManager
 {
-    private SimpleClans plugin;
-    private CreateCommand createCommand;
-    private ListCommand listCommand;
-    private ProfileCommand profileCommand;
-    private RosterCommand rosterCommand;
-    private LookupCommand lookupCommand;
-    private LeaderboardCommand leaderboardCommand;
-    private AlliancesCommand alliancesCommand;
-    private RivalriesCommand rivalriesCommand;
-    private VitalsCommand vitalsCommand;
-    private CoordsCommand coordsCommand;
-    private StatsCommand statsCommand;
-    private AllyCommand allyCommand;
-    private RivalCommand rivalCommand;
-    private BbCommand bbCommand;
-    private ModtagCommand modtagCommand;
-    private ToggleCommand toggleCommand;
-    private InviteCommand inviteCommand;
-    private KickCommand kickCommand;
-    private TrustCommand trustCommand;
-    private UntrustCommand untrustCommand;
-    private PromoteCommand promoteCommand;
-    private DemoteCommand demoteCommand;
-    private ClanffCommand clanffCommand;
-    private FfCommand ffCommand;
-    private ResignCommand resignCommand;
-    private DisbandCommand disbandCommand;
-    private VerifyCommand verifyCommand;
-    private BanCommand banCommand;
-    private UnbanCommand unbanCommand;
-    private ReloadCommand reloadCommand;
-    private GlobalffCommand globalffCommand;
-    private MenuCommand menuCommand;
-    private WarCommand warCommand;
-    private HomeCommand homeCommand;
-    private KillsCommand killsCommand;
-    private MostKilledCommand mostKilledCommand;
-    private SetRankCommand setRankCommand;
+    private final SimpleClans plugin;
+    private final CreateCommand createCommand;
+    private final ListCommand listCommand;
+    private final ProfileCommand profileCommand;
+    private final RosterCommand rosterCommand;
+    private final LookupCommand lookupCommand;
+    private final LeaderboardCommand leaderboardCommand;
+    private final AlliancesCommand alliancesCommand;
+    private final RivalriesCommand rivalriesCommand;
+    private final VitalsCommand vitalsCommand;
+    private final CoordsCommand coordsCommand;
+    private final StatsCommand statsCommand;
+    private final AllyCommand allyCommand;
+    private final RivalCommand rivalCommand;
+    private final BbCommand bbCommand;
+    private final ModtagCommand modtagCommand;
+    private final ToggleCommand toggleCommand;
+    private final InviteCommand inviteCommand;
+    private final KickCommand kickCommand;
+    private final TrustCommand trustCommand;
+    private final UntrustCommand untrustCommand;
+    private final PromoteCommand promoteCommand;
+    private final DemoteCommand demoteCommand;
+    private final ClanffCommand clanffCommand;
+    private final FfCommand ffCommand;
+    private final ResignCommand resignCommand;
+    private final DisbandCommand disbandCommand;
+    private final ReloadCommand reloadCommand;
+    private final GlobalffCommand globalffCommand;
+    private final MenuCommand menuCommand;
+    private final WarCommand warCommand;
+    private final HomeCommand homeCommand;
+    private final KillsCommand killsCommand;
+    private final MostKilledCommand mostKilledCommand;
+    private final SetRankCommand setRankCommand;
 
     /**
      *
@@ -85,9 +82,6 @@ public final class CommandManager
         ffCommand = new FfCommand();
         resignCommand = new ResignCommand();
         disbandCommand = new DisbandCommand();
-        verifyCommand = new VerifyCommand();
-        banCommand = new BanCommand();
-        unbanCommand = new UnbanCommand();
         reloadCommand = new ReloadCommand();
         globalffCommand = new GlobalffCommand();
         warCommand = new WarCommand();
@@ -111,12 +105,6 @@ public final class CommandManager
 
                 if (plugin.getSettingsManager().isBlacklistedWorld(player.getLocation().getWorld().getName()))
                 {
-                    return;
-                }
-
-                if (plugin.getSettingsManager().isBanned(player.getName()))
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("banned"));
                     return;
                 }
 
@@ -237,18 +225,6 @@ public final class CommandManager
                     {
                         disbandCommand.execute(player, subargs);
                     }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("verify.command")))
-                    {
-                        verifyCommand.execute(player, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("ban.command")))
-                    {
-                        banCommand.execute(player, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("unban.command")))
-                    {
-                        unbanCommand.execute(player, subargs);
-                    }
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("reload.command")))
                     {
                         reloadCommand.execute(player, subargs);
@@ -290,11 +266,7 @@ public final class CommandManager
                     String subcommand = args[0];
                     String[] subargs = Helper.removeFirst(args);
 
-                    if (subcommand.equalsIgnoreCase(plugin.getLang("verify.command")))
-                    {
-                        verifyCommand.execute(sender, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("reload.command")))
+                    if (subcommand.equalsIgnoreCase(plugin.getLang("reload.command")))
                     {
                         reloadCommand.execute(sender, subargs);
                     }
@@ -322,11 +294,6 @@ public final class CommandManager
      */
     public void processAccept(Player player)
     {
-        if (plugin.getSettingsManager().isBanned(player.getName()))
-        {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("banned"));
-            return;
-        }
 
         ClanPlayer cp = plugin.getClanManager().getClanPlayer(player);
 
@@ -379,11 +346,6 @@ public final class CommandManager
      */
     public void processDeny(Player player)
     {
-        if (plugin.getSettingsManager().isBanned(player.getName()))
-        {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("banned"));
-            return;
-        }
 
         ClanPlayer cp = plugin.getClanManager().getClanPlayer(player);
 
@@ -436,11 +398,6 @@ public final class CommandManager
      */
     public void processMore(Player player)
     {
-        if (plugin.getSettingsManager().isBanned(player.getName()))
-        {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("banned"));
-            return;
-        }
 
         ChatBlock chatBlock = plugin.getStorageManager().getChatBlock(player);
 

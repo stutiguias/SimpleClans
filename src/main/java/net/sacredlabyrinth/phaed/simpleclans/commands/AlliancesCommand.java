@@ -49,11 +49,6 @@ public class AlliancesCommand
 
                 for (Clan clan : clans)
                 {
-                    if (!clan.isVerified())
-                    {
-                        continue;
-                    }
-
                     chatBlock.addRow("  " + ChatColor.AQUA + clan.getName(), clan.getAllyString(ChatColor.DARK_GRAY + ", "));
                 }
 

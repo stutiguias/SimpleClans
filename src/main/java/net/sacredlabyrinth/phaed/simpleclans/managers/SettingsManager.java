@@ -27,29 +27,23 @@ public final class SettingsManager
     private boolean confirmationForPromote;
     private boolean confirmationForDemote;
     private boolean globalff;
-    private boolean showUnverifiedOnList;
-    private boolean requireVerification;
     private List<Integer> itemsList;
     private List<String> blacklistedWorlds;
-    private List<String> bannedPlayers;
     private List<String> disallowedWords;
     private List<String> disallowedColors;
     private List<String> unRivableClans;
     private int rivalLimitPercent;
     private boolean ePurchaseCreation;
-    private boolean ePurchaseVerification;
     private boolean ePurchaseInvite;
     private boolean ePurchaseHomeTeleport;
     private boolean ePurchaseHomeTeleportSet;
     private double eCreationPrice;
-    private double eVerificationPrice;
     private double eInvitePrice;
     private double eHomeTeleportPrice;
     private double eHomeTeleportPriceSet;
     private String serverName;
     private boolean chatTags;
     private int purgeClan;
-    private int purgeUnverified;
     private int purgePlayers;
     private int requestFreqencySecs;
     private String requestMessageColor;
@@ -171,29 +165,23 @@ public final class SettingsManager
         pvpOnlywhileInWar = getConfig().getBoolean("settings.pvp-only-while-at-war");
         enableAutoGroups = getConfig().getBoolean("settings.enable-auto-groups");
         useColorCodeFromPrefix = getConfig().getBoolean("settings.use-colorcode-from-prefix-for-name");
-        bannedPlayers = getConfig().getStringList("settings.banned-players");
         compatMode = getConfig().getBoolean("settings.chat-compatibility-mode");
         disallowedColors = getConfig().getStringList("settings.disallowed-tag-colors");
         blacklistedWorlds = getConfig().getStringList("settings.blacklisted-worlds");
         disallowedWords = getConfig().getStringList("settings.disallowed-tags");
         unRivableClans = getConfig().getStringList("settings.unrivable-clans");
-        showUnverifiedOnList = getConfig().getBoolean("settings.show-unverified-on-list");
-        requireVerification = getConfig().getBoolean("settings.new-clan-verification-required");
         serverName = getConfig().getString("settings.server-name");
         chatTags = getConfig().getBoolean("settings.display-chat-tags");
         rivalLimitPercent = getConfig().getInt("settings.rival-limit-percent");
         ePurchaseCreation = getConfig().getBoolean("economy.purchase-clan-create");
-        ePurchaseVerification = getConfig().getBoolean("economy.purchase-clan-verify");
         ePurchaseInvite = getConfig().getBoolean("economy.purchase-clan-invite");
         ePurchaseHomeTeleport = getConfig().getBoolean("economy.purchase-home-teleport");
         ePurchaseHomeTeleportSet = getConfig().getBoolean("economy.purchase-home-teleport-set");
         eCreationPrice = getConfig().getDouble("economy.creation-price");
-        eVerificationPrice = getConfig().getDouble("economy.verification-price");
         eInvitePrice = getConfig().getDouble("economy.invite-price");
         eHomeTeleportPrice = getConfig().getDouble("economy.home-teleport-price");
         eHomeTeleportPriceSet = getConfig().getDouble("economy.home-teleport-set-price");
         purgeClan = getConfig().getInt("purge.inactive-clan-days");
-        purgeUnverified = getConfig().getInt("purge.unverified-clan-days");
         purgePlayers = getConfig().getInt("purge.inactive-player-data-days");
         requestFreqencySecs = getConfig().getInt("request.ask-frequency-secs");
         requestMessageColor = getConfig().getString("request.message-color");
@@ -390,76 +378,11 @@ public final class SettingsManager
     }
 
     /**
-     * Check whether a player is banned
-     *
-     * @param playerName the player's name
-     * @return whether player is banned
-     */
-    public boolean isBanned(String playerName)
-    {
-        for (Object pl : getBannedPlayers())
-        {
-            if (((String) pl).equalsIgnoreCase(playerName))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Add a player to the banned list
-     *
-     * @param playerName the player's name
-     */
-    public void addBanned(String playerName)
-    {
-        if (!bannedPlayers.contains(playerName))
-        {
-            getBannedPlayers().add(playerName);
-        }
-
-        save();
-    }
-
-    /**
-     * Remove a player from the banned list
-     *
-     * @param playerName the player's name
-     */
-    public void removeBanned(String playerName)
-    {
-        if (getBannedPlayers().contains(playerName))
-        {
-            getBannedPlayers().remove(playerName);
-        }
-
-        save();
-    }
-
-    /**
      * @return the plugin
      */
     public SimpleClans getPlugin()
     {
         return plugin;
-    }
-
-    /**
-     * @return the requireVerification
-     */
-    public boolean isRequireVerification()
-    {
-        return requireVerification;
-    }
-
-    /**
-     * @return the bannedPlayers
-     */
-    public List<String> getBannedPlayers()
-    {
-        return Collections.unmodifiableList(bannedPlayers);
     }
 
     /**
@@ -508,14 +431,6 @@ public final class SettingsManager
     public int getPurgeClan()
     {
         return purgeClan;
-    }
-
-    /**
-     * @return the purgeUnverified
-     */
-    public int getPurgeUnverified()
-    {
-        return purgeUnverified;
     }
 
     /**
@@ -857,14 +772,6 @@ public final class SettingsManager
     }
 
     /**
-     * @return the showUnverifiedOnList
-     */
-    public boolean isShowUnverifiedOnList()
-    {
-        return showUnverifiedOnList;
-    }
-
-    /**
      * @return the clanTrustByDefault
      */
     public boolean isClanTrustByDefault()
@@ -945,14 +852,6 @@ public final class SettingsManager
     }
 
     /**
-     * @return the ePurchaseVerification
-     */
-    public boolean isePurchaseVerification()
-    {
-        return ePurchaseVerification;
-    }
-
-    /**
      * @return the ePurchaseInvite
      */
     public boolean isePurchaseInvite()
@@ -966,14 +865,6 @@ public final class SettingsManager
     public double getCreationPrice()
     {
         return eCreationPrice;
-    }
-
-    /**
-     * @return the eVerificationPrice
-     */
-    public double getVerificationPrice()
-    {
-        return eVerificationPrice;
     }
 
     /**

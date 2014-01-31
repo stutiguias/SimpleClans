@@ -33,8 +33,6 @@ public class RivalCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (!clan.isUnrivable())
                     {
                         if (clan.isLeader(player))
@@ -50,8 +48,6 @@ public class RivalCommand
                                     {
                                         if (!plugin.getSettingsManager().isUnrivable(rival.getTag()))
                                         {
-                                            if (rival.isVerified())
-                                            {
                                                 if (action.equals(plugin.getLang("add")))
                                                 {
                                                     if (!clan.reachedRivalLimit())
@@ -89,11 +85,6 @@ public class RivalCommand
                                                 {
                                                     ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.ally"), plugin.getSettingsManager().getCommandClan()));
                                                 }
-                                            }
-                                            else
-                                            {
-                                                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("cannot.rival.an.unverified.clan"));
-                                            }
                                         }
                                         else
                                         {
@@ -124,11 +115,6 @@ public class RivalCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clan.cannot.create.rivals"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
             }
             else
             {

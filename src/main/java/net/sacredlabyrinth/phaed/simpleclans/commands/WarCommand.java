@@ -34,8 +34,6 @@ public class WarCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (clan.isLeader(player))
                     {
                         if (arg.length == 2)
@@ -104,11 +102,6 @@ public class WarCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
             }
             else
             {

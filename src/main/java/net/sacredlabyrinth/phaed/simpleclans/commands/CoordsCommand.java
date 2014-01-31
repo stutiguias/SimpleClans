@@ -40,8 +40,6 @@ public class CoordsCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (cp.isTrusted())
                     {
                         if (arg.length == 0)
@@ -114,12 +112,7 @@ public class CoordsCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.coords"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
-            }
+             }
             else
             {
                 ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));

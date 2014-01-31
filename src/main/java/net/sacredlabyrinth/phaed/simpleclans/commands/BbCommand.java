@@ -26,7 +26,6 @@ public class BbCommand {
         if (cp != null) {
             Clan clan = cp.getClan();
 
-            if (clan.isVerified()) {
                 if (arg.length == 0) {
                     if (plugin.getPermissionsManager().has(player, "simpleclans.member.bb")) {
                         clan.displayBb(player);
@@ -55,9 +54,6 @@ public class BbCommand {
                 } else {
                     ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
                 }
-            } else {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-            }
         } else {
             ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
         }

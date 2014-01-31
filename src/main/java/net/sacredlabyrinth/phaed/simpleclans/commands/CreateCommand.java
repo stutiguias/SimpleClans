@@ -69,16 +69,6 @@ public class CreateCommand
                                                             Clan clan = plugin.getClanManager().getClan(tag);
                                                             clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("clan.created"), name));
                                                             plugin.getStorageManager().updateClan(clan);
-
-                                                            if (plugin.getSettingsManager().isRequireVerification())
-                                                            {
-                                                                boolean verified = !plugin.getSettingsManager().isRequireVerification() || plugin.getPermissionsManager().has(player, "simpleclans.mod.verify");
-
-                                                                if (!verified)
-                                                                {
-                                                                    ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("get.your.clan.verified.to.access.advanced.features"));
-                                                                }
-                                                            }
                                                         }
                                                     }
                                                     else

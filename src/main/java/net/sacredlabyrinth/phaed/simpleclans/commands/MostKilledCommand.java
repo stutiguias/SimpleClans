@@ -35,8 +35,6 @@ public class MostKilledCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (cp.isTrusted())
                     {
                         ChatBlock chatBlock = new ChatBlock();
@@ -90,12 +88,7 @@ public class MostKilledCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.stats"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
-            }
+             }
             else
             {
                 ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));

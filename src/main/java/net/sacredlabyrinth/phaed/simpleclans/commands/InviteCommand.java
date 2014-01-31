@@ -49,26 +49,19 @@ public class InviteCommand
                             {
                                 if (!invited.getName().equals(player.getName()))
                                 {
-                                    if (!plugin.getSettingsManager().isBanned(player.getName()))
-                                    {
-                                        ClanPlayer cpInv = plugin.getClanManager().getClanPlayer(invited);
+                                    ClanPlayer cpInv = plugin.getClanManager().getClanPlayer(invited);
 
-                                        if (cpInv == null)
+                                    if (cpInv == null)
+                                    {
+                                        if (plugin.getClanManager().purchaseInvite(player))
                                         {
-                                            if (plugin.getClanManager().purchaseInvite(player))
-                                            {
-                                                plugin.getRequestManager().addInviteRequest(cp, invited.getName(), clan);
-                                                ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.been.asked.to.join"), Helper.capitalize(invited.getName()), clan.getName()));
-                                            }
-                                        }
-                                        else
-                                        {
-                                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.is.already.member.of.another.clan"));
+                                            plugin.getRequestManager().addInviteRequest(cp, invited.getName(), clan);
+                                            ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.been.asked.to.join"), Helper.capitalize(invited.getName()), clan.getName()));
                                         }
                                     }
                                     else
                                     {
-                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("this.player.is.banned.from.using.clan.commands"));
+                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.is.already.member.of.another.clan"));
                                     }
                                 }
                                 else

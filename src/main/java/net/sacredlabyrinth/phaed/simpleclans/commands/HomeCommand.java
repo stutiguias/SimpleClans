@@ -58,12 +58,6 @@ public class HomeCommand
 
         Clan clan = cp.getClan();
 
-        if (!clan.isVerified())
-        {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-            return;
-        }
-
         if (!cp.isTrusted())
         {
             ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.vitals"));

@@ -37,8 +37,6 @@ public class VitalsCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (cp.isTrusted())
                     {
                         if (arg.length == 0)
@@ -118,11 +116,6 @@ public class VitalsCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.vitals"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
             }
             else
             {

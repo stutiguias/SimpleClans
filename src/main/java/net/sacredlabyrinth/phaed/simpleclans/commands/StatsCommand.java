@@ -38,8 +38,6 @@ public class StatsCommand
             {
                 Clan clan = cp.getClan();
 
-                if (clan.isVerified())
-                {
                     if (cp.isTrusted())
                     {
                         if (arg.length == 0)
@@ -109,11 +107,6 @@ public class StatsCommand
                     {
                         ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.stats"));
                     }
-                }
-                else
-                {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-                }
             }
             else
             {

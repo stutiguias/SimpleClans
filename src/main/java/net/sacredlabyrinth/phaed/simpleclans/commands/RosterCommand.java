@@ -69,8 +69,6 @@ public class RosterCommand
 
         if (clan != null)
         {
-            if (clan.isVerified())
-            {
                 ChatBlock chatBlock = new ChatBlock();
 
                 ChatBlock.sendBlank(player);
@@ -120,10 +118,6 @@ public class RosterCommand
                 }
 
                 ChatBlock.sendBlank(player);
-            } else
-            {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-            }
         } else
         {
             ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.roster.tag"), plugin.getSettingsManager().getCommandClan()));

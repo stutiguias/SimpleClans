@@ -19,11 +19,9 @@ import java.util.*;
 public class Clan implements Serializable, Comparable<Clan> {
 
     private static final long serialVersionUID = 1L;
-    private boolean verified;
     private String tag;
     private String colorTag;
     private String name;
-    private double balance;
     private boolean friendlyFire;
     private long founded;
     private long lastUsed;
@@ -47,16 +45,14 @@ public class Clan implements Serializable, Comparable<Clan> {
     /**
      * @param tag
      * @param name
-     * @param verified
      */
-    public Clan(String tag, String name, boolean verified) {
+    public Clan(String tag, String name) {
         this.tag = Helper.cleanTag(tag);
         this.colorTag = Helper.parseColors(tag);
         this.name = name;
         this.founded = (new Date()).getTime();
         this.lastUsed = (new Date()).getTime();
-        this.verified = verified;
-
+        
         if (SimpleClans.getInstance().getSettingsManager().isClanFFOnByDefault()) {
             friendlyFire = true;
         }
@@ -364,26 +360,6 @@ public class Clan implements Serializable, Comparable<Clan> {
      */
     public boolean isAlly(String tag) {
         return allies.contains(tag);
-    }
-
-    /**
-     * Tells you if the clan is verified, always returns true if no verification
-     * is required
-     *
-     * @return
-     */
-    public boolean isVerified() {
-        return !SimpleClans.getInstance().getSettingsManager().isRequireVerification() || verified;
-
-    }
-
-    /**
-     * (used internally)
-     *
-     * @param verified the verified to set
-     */
-    public void setVerified(boolean verified) {
-        this.verified = verified;
     }
 
     /**
@@ -963,14 +939,6 @@ public class Clan implements Serializable, Comparable<Clan> {
     }
 
     /**
-     * Verify a clan
-     */
-    public void verifyClan() {
-        setVerified(true);
-        SimpleClans.getInstance().getStorageManager().updateClan(this);
-    }
-
-    /**
      * Check whether any clan member is online
      *
      * @return
@@ -1091,10 +1059,8 @@ public class Clan implements Serializable, Comparable<Clan> {
      * @param msg
      */
     public void addBb(String announcerName, String msg) {
-        if (isVerified()) {
-            addBb(SimpleClans.getInstance().getSettingsManager().getBbColor() + msg);
-            clanAnnounce(announcerName, SimpleClans.getInstance().getSettingsManager().getBbAccentColor() + "* " + SimpleClans.getInstance().getSettingsManager().getBbColor() + Helper.parseColors(msg));
-        }
+        addBb(SimpleClans.getInstance().getSettingsManager().getBbColor() + msg);
+        clanAnnounce(announcerName, SimpleClans.getInstance().getSettingsManager().getBbAccentColor() + "* " + SimpleClans.getInstance().getSettingsManager().getBbColor() + Helper.parseColors(msg));
     }
 
     /**
@@ -1103,21 +1069,19 @@ public class Clan implements Serializable, Comparable<Clan> {
      * @param player
      */
     public void displayBb(Player player) {
-        if (isVerified()) {
-            ChatBlock.sendBlank(player);
-            ChatBlock.saySingle(player, MessageFormat.format(SimpleClans.getInstance().getLang("bulletin.board.header"), SimpleClans.getInstance().getSettingsManager().getBbAccentColor(), SimpleClans.getInstance().getSettingsManager().getPageHeadingsColor(), Helper.capitalize(getName())));
+        ChatBlock.sendBlank(player);
+        ChatBlock.saySingle(player, MessageFormat.format(SimpleClans.getInstance().getLang("bulletin.board.header"), SimpleClans.getInstance().getSettingsManager().getBbAccentColor(), SimpleClans.getInstance().getSettingsManager().getPageHeadingsColor(), Helper.capitalize(getName())));
 
-            int maxSize = SimpleClans.getInstance().getSettingsManager().getBbSize();
+        int maxSize = SimpleClans.getInstance().getSettingsManager().getBbSize();
 
-            while (bb.size() > maxSize) {
-                bb.remove(0);
-            }
-
-            for (String msg : bb) {
-                ChatBlock.sendMessage(player, SimpleClans.getInstance().getSettingsManager().getBbAccentColor() + "* " + SimpleClans.getInstance().getSettingsManager().getBbColor() + Helper.parseColors(msg));
-            }
-            ChatBlock.sendBlank(player);
+        while (bb.size() > maxSize) {
+            bb.remove(0);
         }
+
+        for (String msg : bb) {
+            ChatBlock.sendMessage(player, SimpleClans.getInstance().getSettingsManager().getBbAccentColor() + "* " + SimpleClans.getInstance().getSettingsManager().getBbColor() + Helper.parseColors(msg));
+        }
+        ChatBlock.sendBlank(player);
     }
 
     /**
@@ -1131,14 +1095,8 @@ public class Clan implements Serializable, Comparable<Clan> {
             if (cp.getTag().equals(getTag())) {
                 SimpleClans.getInstance().getPermissionsManager().removeClanPermissions(this);
                 cp.setClan(null);
-
-
-                if (isVerified()) {
-                    cp.addPastClan(getColorTag() + (cp.isLeader() ? ChatColor.DARK_RED + "*" : ""));
-                }
-
+                cp.addPastClan(getColorTag() + (cp.isLeader() ? ChatColor.DARK_RED + "*" : ""));
                 cp.setLeader(false);
-
                 SimpleClans.getInstance().getStorageManager().updateClanPlayer(cp);
             }
         }

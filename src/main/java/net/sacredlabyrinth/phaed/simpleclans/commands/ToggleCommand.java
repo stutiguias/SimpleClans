@@ -35,18 +35,14 @@ public class ToggleCommand {
                 ClanPlayer cp = plugin.getClanManager().getClanPlayer(player);
 
                 if (cp != null) {
-                    Clan clan = cp.getClan();
-
-                    if (clan.isVerified()) {
-                        if (cp.isBbEnabled()) {
-                            ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("bboff"));
-                            cp.setBbEnabled(false);
-                        } else {
-                            ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("bbon"));
-                            cp.setBbEnabled(true);
-                        }
-                        plugin.getStorageManager().updateClanPlayer(cp);
+                    if (cp.isBbEnabled()) {
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("bboff"));
+                        cp.setBbEnabled(false);
+                    } else {
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("bbon"));
+                        cp.setBbEnabled(true);
                     }
+                    plugin.getStorageManager().updateClanPlayer(cp);
                 }
             }
         }
@@ -56,18 +52,14 @@ public class ToggleCommand {
                 ClanPlayer cp = plugin.getClanManager().getClanPlayer(player);
 
                 if (cp != null) {
-                    Clan clan = cp.getClan();
-
-                    if (clan.isVerified()) {
-                        if (cp.isTagEnabled()) {
-                            ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("tagoff"));
-                            cp.setTagEnabled(false);
-                        } else {
-                            ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("tagon"));
-                            cp.setTagEnabled(true);
-                        }
-                        plugin.getStorageManager().updateClanPlayer(cp);
+                    if (cp.isTagEnabled()) {
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("tagoff"));
+                        cp.setTagEnabled(false);
+                    } else {
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("tagon"));
+                        cp.setTagEnabled(true);
                     }
+                    plugin.getStorageManager().updateClanPlayer(cp);
                 }
             }
         }

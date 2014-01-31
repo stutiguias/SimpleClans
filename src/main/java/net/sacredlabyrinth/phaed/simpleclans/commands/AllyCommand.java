@@ -42,12 +42,6 @@ public class AllyCommand
 
         Clan clan = cp.getClan();
 
-        if (!clan.isVerified())
-        {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("clan.is.not.verified"));
-            return;
-        }
-
         if (!clan.isLeader(player))
         {
             ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
@@ -73,11 +67,6 @@ public class AllyCommand
         {
             ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.clan.matched"));
             return;
-        }
-
-        if (!ally.isVerified())
-        {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("cannot.ally.with.an.unverified.clan"));
         }
 
         if (action.equals(plugin.getLang("add")))

@@ -61,19 +61,11 @@ public class ListCommand
 
                     for (Clan clan : clans)
                     {
-                        if (!plugin.getSettingsManager().isShowUnverifiedOnList())
-                        {
-                            if (!clan.isVerified())
-                            {
-                                continue;
-                            }
-                        }
-
                         String tag = plugin.getSettingsManager().getClanChatBracketColor() + plugin.getSettingsManager().getClanChatTagBracketLeft() + plugin.getSettingsManager().getTagDefaultColor() + clan.getColorTag() + plugin.getSettingsManager().getClanChatBracketColor() + plugin.getSettingsManager().getClanChatTagBracketRight();
-                        String name = (clan.isVerified() ? plugin.getSettingsManager().getPageClanNameColor() : ChatColor.GRAY) + clan.getName();
+                        String name = plugin.getSettingsManager().getPageClanNameColor() + clan.getName();
                         String fullname = tag + " " + name;
                         String size = ChatColor.WHITE + "" + clan.getSize();
-                        String kdr = clan.isVerified() ? ChatColor.YELLOW + "" + formatter.format(clan.getTotalKDR()) : "";
+                        String kdr = ChatColor.YELLOW + "" + formatter.format(clan.getTotalKDR());
 
                         chatBlock.addRow("  " + rank, fullname, kdr, size);
                         rank++;

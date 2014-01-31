@@ -51,11 +51,6 @@ public class RivalriesCommand
 
                 for (Clan clan : clans)
                 {
-                    if (!clan.isVerified())
-                    {
-                        continue;
-                    }
-
                     chatBlock.addRow("  " + ChatColor.AQUA + clan.getName(), clan.getRivalString(ChatColor.DARK_GRAY + ", "));
                 }
 

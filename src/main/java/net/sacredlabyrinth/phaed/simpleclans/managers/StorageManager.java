@@ -77,7 +77,7 @@ public final class StorageManager
                 {
                     SimpleClans.log("Creating table: sc_clans");
 
-                    String query = "CREATE TABLE IF NOT EXISTS `sc_clans` ( `id` bigint(20) NOT NULL auto_increment, `verified` tinyint(1) default '0', `tag` varchar(25) NOT NULL, `color_tag` varchar(25) NOT NULL, `name` varchar(100) NOT NULL, `friendly_fire` tinyint(1) default '0', `founded` bigint NOT NULL, `last_used` bigint NOT NULL, `packed_allies` text NOT NULL, `packed_rivals` text NOT NULL, `packed_bb` mediumtext NOT NULL, `flags` text NOT NULL, PRIMARY KEY  (`id`), UNIQUE KEY `uq_simpleclans_1` (`tag`));";
+                    String query = "CREATE TABLE IF NOT EXISTS `sc_clans` ( `id` bigint(20) NOT NULL auto_increment, `tag` varchar(25) NOT NULL, `color_tag` varchar(25) NOT NULL, `name` varchar(100) NOT NULL, `friendly_fire` tinyint(1) default '0', `founded` bigint NOT NULL, `last_used` bigint NOT NULL, `packed_allies` text NOT NULL, `packed_rivals` text NOT NULL, `packed_bb` mediumtext NOT NULL, `flags` text NOT NULL, PRIMARY KEY  (`id`), UNIQUE KEY `uq_simpleclans_1` (`tag`));";
                     core.execute(query);
                 }
 
@@ -207,22 +207,13 @@ public final class StorageManager
 
     private void purgeClans(List<Clan> clans)
     {
-        List<Clan> purge = new ArrayList<Clan>();
+        List<Clan> purge = new ArrayList<>();
 
         for (Clan clan : clans)
         {
-            if (clan.isVerified())
+            if (clan.getInactiveDays() > plugin.getSettingsManager().getPurgeClan())
             {
-                if (clan.getInactiveDays() > plugin.getSettingsManager().getPurgeClan())
-                {
-                    purge.add(clan);
-                }
-            } else
-            {
-                if (clan.getInactiveDays() > plugin.getSettingsManager().getPurgeUnverified())
-                {
-                    purge.add(clan);
-                }
+                purge.add(clan);
             }
         }
 
@@ -236,7 +227,7 @@ public final class StorageManager
 
     private void purgeClanPlayers(List<ClanPlayer> cps)
     {
-        List<ClanPlayer> purge = new ArrayList<ClanPlayer>();
+        List<ClanPlayer> purge = new ArrayList<>();
 
         for (ClanPlayer cp : cps)
         {
@@ -277,7 +268,6 @@ public final class StorageManager
                 {
                     try
                     {
-                        boolean verified = res.getBoolean("verified");
                         boolean friendly_fire = res.getBoolean("friendly_fire");
                         String tag = res.getString("tag");
                         String color_tag = Helper.parseColors(res.getString("color_tag"));
@@ -285,11 +275,9 @@ public final class StorageManager
                         String packed_allies = res.getString("packed_allies");
                         String packed_rivals = res.getString("packed_rivals");
                         String packed_bb = res.getString("packed_bb");
-                        String cape_url = res.getString("cape_url");
                         String flags = res.getString("flags");
                         long founded = res.getLong("founded");
                         long last_used = res.getLong("last_used");
-                        double balance = res.getDouble("balance");
 
                         if (founded == 0)
                         {
@@ -303,7 +291,6 @@ public final class StorageManager
 
                         Clan clan = new Clan();
                         clan.setFlags(flags);
-                        clan.setVerified(verified);
                         clan.setFriendlyFire(friendly_fire);
                         clan.setTag(tag);
                         clan.setColorTag(color_tag);
@@ -315,7 +302,7 @@ public final class StorageManager
                         clan.setLastUsed(last_used);
 
                         out.add(clan);
-                    } catch (Exception ex)
+                    } catch (SQLException ex)
                     {
                         for (StackTraceElement el : ex.getStackTrace())
                         {
@@ -477,8 +464,8 @@ public final class StorageManager
      */
     public void insertClan(Clan clan)
     {
-        String query = "INSERT INTO `sc_clans` (  `verified`, `tag`, `color_tag`, `name`, `friendly_fire`, `founded`, `last_used`, `packed_allies`, `packed_rivals`, `packed_bb`, `flags`) ";
-        String values = "VALUES ( " + (clan.isVerified() ? 1 : 0) + ",'" + Helper.escapeQuotes(clan.getTag()) + "','" + Helper.escapeQuotes(clan.getColorTag()) + "','" + Helper.escapeQuotes(clan.getName()) + "'," + (clan.isFriendlyFire() ? 1 : 0) + ",'" + clan.getFounded() + "','" + clan.getLastUsed() + "','" + Helper.escapeQuotes(clan.getPackedAllies()) + "','" + Helper.escapeQuotes(clan.getPackedRivals()) + "','" + Helper.escapeQuotes(clan.getPackedBb()) + "','" + Helper.escapeQuotes(clan.getFlags()) + "');";
+        String query = "INSERT INTO `sc_clans` ( `tag`, `color_tag`, `name`, `friendly_fire`, `founded`, `last_used`, `packed_allies`, `packed_rivals`, `packed_bb`, `flags`) ";
+        String values = "VALUES ( '" + Helper.escapeQuotes(clan.getTag()) + "','" + Helper.escapeQuotes(clan.getColorTag()) + "','" + Helper.escapeQuotes(clan.getName()) + "'," + (clan.isFriendlyFire() ? 1 : 0) + ",'" + clan.getFounded() + "','" + clan.getLastUsed() + "','" + Helper.escapeQuotes(clan.getPackedAllies()) + "','" + Helper.escapeQuotes(clan.getPackedRivals()) + "','" + Helper.escapeQuotes(clan.getPackedBb()) + "','" + Helper.escapeQuotes(clan.getFlags()) + "');";
         core.insert(query + values);
     }
 
@@ -487,6 +474,7 @@ public final class StorageManager
      *
      * @param attackerclan
      * @param victimclan
+     * @param amount
      */
     public void addStrife(Clan attackerclan, Clan victimclan, int amount)
     {
@@ -526,7 +514,7 @@ public final class StorageManager
     public void updateClan(Clan clan)
     {
         clan.updateLastUsed();
-        String query = "UPDATE `sc_clans` SET verified = " + (clan.isVerified() ? 1 : 0) + ", tag = '" + Helper.escapeQuotes(clan.getTag()) + "', color_tag = '" + Helper.escapeQuotes(clan.getColorTag()) + "', name = '" + Helper.escapeQuotes(clan.getName()) + "', friendly_fire = " + (clan.isFriendlyFire() ? 1 : 0) + ", founded = '" + clan.getFounded() + "', last_used = '" + clan.getLastUsed() + "', packed_allies = '" + Helper.escapeQuotes(clan.getPackedAllies()) + "', packed_rivals = '" + Helper.escapeQuotes(clan.getPackedRivals()) + "', packed_bb = '" + Helper.escapeQuotes(clan.getPackedBb()) + "', flags = '" + Helper.escapeQuotes(clan.getFlags()) + "' WHERE tag = '" + Helper.escapeQuotes(clan.getTag()) + "';";
+        String query = "UPDATE `sc_clans` SET tag = '" + Helper.escapeQuotes(clan.getTag()) + "', color_tag = '" + Helper.escapeQuotes(clan.getColorTag()) + "', name = '" + Helper.escapeQuotes(clan.getName()) + "', friendly_fire = " + (clan.isFriendlyFire() ? 1 : 0) + ", founded = '" + clan.getFounded() + "', last_used = '" + clan.getLastUsed() + "', packed_allies = '" + Helper.escapeQuotes(clan.getPackedAllies()) + "', packed_rivals = '" + Helper.escapeQuotes(clan.getPackedRivals()) + "', packed_bb = '" + Helper.escapeQuotes(clan.getPackedBb()) + "', flags = '" + Helper.escapeQuotes(clan.getFlags()) + "' WHERE tag = '" + Helper.escapeQuotes(clan.getTag()) + "';";
         core.update(query);
     }
 
