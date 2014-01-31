@@ -1,0 +1,383 @@
+Command :
+    create : create
+    list : list
+    profile: profile
+    roster : roster
+    lookup : lookup
+    leaderboard : leaderboard
+    alliances : alliances
+    rivalries : rivalries
+    vitals : vitals
+    coords : coords
+    stats : stats
+    ally : ally
+    rival : rival
+    bb : bb
+    modtag : modtag
+    toggle : toggle
+    invite : invite
+    kick : kick
+    trust : trust
+    untrust : untrust
+    promote : promote
+    demote : demote
+    clanff : clanff
+    ff : ff
+    resign : resign
+    disband : disband
+    verify : verify
+    ban : ban
+    unban : unban
+    reload : reload
+    globalff : globalff
+    kills : kills
+    mostkilled : mostkilled
+    war : war
+    home : home
+    setrank : setrank
+usage:
+    clanAlliances : "Usage: /{0} alliances"
+    ally: "Usage: /{0} ally add/remove [tag]"
+    banUnban: "Usage: /{0} ban/unban [player]"
+    rival: "Usage: /{0} rival add/remove [tag]"
+    usageWar: "Usage: /{0} war start/end [tag]"
+    setrank: "Usage: /{0} setrank [player] [rank], rank can be multiple worlds and contain &f color codes"
+    clanff: "Usage: /{0} clanff allow/block"
+    coords: "Usage: /{0} coords"
+    createTag: "Usage: /{0} create [tag] [name]"
+    demoteLeader: "Usage: /{0} demote [leader]"
+    disband: "Usage: /{0} disband"
+    ffAllowAuto: "Usage: /{0} ff allow/auto"
+    globalffAllowAuto: "Usage: /{0} globalff allow/auto"
+    permissionsPlayer: "Usage: /{0} permissions [clan] add/remove [permission]"
+    invitePlayer: "Usage: /{0} invite [player]"
+    kickPlayer: "Usage: /{0} kick [player]"
+    modtagTag: "Usage: /{0} modtag [tag]"
+    list: "Usage: /{0} list"
+    lookupTag: "Usage: /{0} lookup [tag]"
+    profileTag: "Usage: /{0} profile [tag]"
+    promoteMember: "Usage: /{0} promote <member>"
+    rivalries: "Usage: /{0} rivalries"
+    rosterTag: "Usage: /{0} roster [tag]"
+    stats: "Usage: /{0} stats"
+    trustPlayer: "Usage: /{0} trust [player]"
+    untrustPlayer: "Usage: /{0} untrust [player]"
+    verifyTag: "Usage: /{0} verify [tag]"
+    vitals: "Usage: /{0} vitals"
+    leaderboard: "Usage: /{0} leaderboard"
+help:
+    reload: "/{0} reload{1} - Reload configuration"
+    globalff: "/{0} globalff allow/auto {1} - Set global friendly fire"
+    banUnban: "/{0} ban/unban [player]{1} - Ban/unban a player"
+    disband: "/{0} disband [tag]{1} - Disband a clan"
+    verify: "/{0} verify [tag]{1} - Verify an unverified clan"
+    purchaseVerification: "/{0} verify{1} - Purchase verification of your clan"
+    list: "/{0} list{1} - Lists all clans"
+    profileView: "/{0} profile{1} - View your clan''s profile"
+    profileTag: "/{0} profile [tag]{1} - View a clan''s profile"
+    lookup: "/{0} lookup{1} - Lookup your info"
+    lookupPlayer: "/{0} lookup [player]{1} - Lookup a player''s info"
+    leaderboardView: "/{0} leaderboard{1} - View leaderboard"
+    alliances: "/{0} alliances{1} - View all clan alliances"
+    rivalries: "/{0} rivalries{1} - View all clan rivalries"
+    roster: "/{0} roster{1} - View your clan''s member list"
+    rosterTag: "/{0} roster [tag]{1} - View a clan''s member list"
+    vitals: "/{0} vitals{1} - View your clan member''s vitals"
+    coords: "/{0} coords{1} - View your clan member''s coordinates"
+    stats: "/{0} stats{1} - View your clan member''s stats"
+    allyAddRemove: "/{0} ally add/remove [tag]{1} - Add/remove an ally clan"
+    rivalAddRemove: "/{0} rival add/remove [tag]{1} - Add/remove a rival clan"
+    bb: "/{0} bb{1} - Display bulletin board"
+    bbMsg: "/{0} bb [msg]{1} - Add a message to the bulletin board"
+    modtagTag: "/{0} modtag [tag]{1} - Modify the clan''s tag"
+    invitePlayer: "/{0} invite [player]{1} - Invite a player"
+    kickPlayer: "/{0} kick [player]{1} - Kick a player from the clan"
+    trust: "/{0} trust [player]{1} - Set member as trusted"
+    untrust: "/{0} untrust [player]{1} - Set member as untrusted"
+    promoteMember: "/{0} promote [member]{1} - Promote a member to leader"
+    demoteLeader: "/{0} demote [leader]{1} - Demote a leader to member"
+    clanff: "/{0} clanff allow/block{1} - Toggle clan''s friendly fire"
+    ff: "/{0} ff allow/auto{1} - Toggle personal friendly fire"
+    toggle: "/{0} toggle [{2}]{1} - Toggle personal settings"
+    resign: "/{0} resign{1} - Resign from the clan"
+    disband: "/{0} disband{1} - Disband your clan"
+    setrank: "/{0} setrank [player] [rank]{1} - Give a player a rank"
+    createPurchase: "/{0} create [tag] [name]{1} - Purchase a new clan"
+    createCreate: "/{0} create [tag] [name]{1} - Create a new clan"
+    kills: "/{0} kills{1} - View your kill counts"
+    killsplayer: "/{0} kills [player]{1} - View a player''s kill counts"
+    mostkilled: "/{0} mostkilled{1} - View serverwide most killed counts"
+    homeMenu: "/{0} home{1} - Teleport to clan home-base"
+    homeSetMenu: "/{0} home set{1} - Set the clan's home base"
+    homeClearMenu: "/{0} home clear{1} - Clear the clan's home base"
+    exampleClanModtag: "Example: /clan modtag &4K&fo&4L"
+    exampleClanCreate: "Example: /clan create &4Kol Knights of the Labyrinth"
+names:
+    clan: Clan
+    allies: Allies
+    alliances: alliances
+    coords: coords
+    name: Name
+    distance: Distance
+    coordsUpper: Coords
+    world: World
+    kdr: KDR
+    members: Members
+    clansLower: clans
+    rival: Rival
+    civilian: Civilian
+    neutral: Neutral
+    freeAgent: Free Agent
+    days: days
+    rivals: Rivals
+    rivalries: rivalries
+    online: Online
+    player: Player
+    seen: Seen
+    leader: leader
+    roster: roster
+    trusted: trusted
+    untrusted: untrusted
+    deaths: Deaths
+    weights: Weights
+    stats: stats
+    health: Health
+    armor: Armor
+    weapons: Weapons
+    food: Food
+    vitals: vitals
+    verified: Verified
+    unverified: Unverified
+    profile: profile
+    civilianAbbreviation: Civ
+    rank: Rank
+    leaders: Leaders
+    none: None
+    today: Today
+    kills: Kills
+    mostkilled: Most Killed
+    killcount: Kill Count
+    attacker: Attacker
+    victim: Victim
+messages:
+    killDeathRatio: "Kill/Death Ratio"
+    nokillsfound: "No Kills Found"
+    promotedToLeader: "{0} has been promoted to leader"
+    deniedDemotion: "{0} denied the demotion of {1}. Consensus failed."
+    membershipInvitation: "{0} has denied the membership invitation"
+    joinedTheClan: "{0} has joined the clan"
+    signedOffRequestCancelled: "{0} has signed off. {1} request cancelled."
+    clanDeletion: "{0} denied the clan deletion. Consensus failed."
+    hasBeenDisbanded: "Clan {0} has been disbanded"
+    deniedThePromotion: "{0} denied the promotion of {1}. Consensus failed."
+    demotedBackToMember: "{0} has been demoted back to member"
+    peaceAgreementDenied: "The peace agreement with {0} was denied"
+    deniedMakePeace: "{0} has denied to make peace with {1}"
+    brokenRivalry: "{0} has broken the rivalry with {1}"
+    brokenRivalryWith: "{0} has broken the rivalry with {1}"
+    AllianceDenied: "The alliance with {0} was denied"
+    deniedAlliance: "{0} has denied an alliance with {1}"
+    acceptedAlliance: "{0} has accepted an alliance with {1}"
+    createdAlliance: "{0} has created an alliance with {1}"
+    hasJoined: "{0} has joined {1}"
+    proposingEndRivalry: "{0} is proposing to end the rivalry with {1}"
+    proposingAlliance: "{0} is proposing an alliance with {1}"
+    invitingJoin: "{0} is inviting you to join {1}"
+    askingDeletion: "{0} is asking for the deletion of the clan"
+    askingPromotion: "{0} is asking for the promotion of {1}"
+    askingDemotion: "{0} is asking for the demotion of {1}"
+    acceptDeny: "{0} or {1}"
+admin:
+    purgingPlayerData: "purging player''s data: {0}"
+    purgingClan: "Purging clan: {0}"
+    clanPlayers: "Clan players: {0}"
+    clans: "Clans: {0}"
+deny:
+    banned: "You are banned from using clan commands"
+    nothingMoreSee: "Nothing more to see"
+    nothingToDeny: "Nothing to deny"
+    nothingAccept: "Nothing to accept"
+    LeaderPermissions: "You do not have leader permissions"
+    AlreadyVoted: "You have already voted"
+    votedDeny: "{0} has voted to deny"	
+viewNextPage: "Type /{0} to view next page."
+votedAccept: "{0} voted to accept"
+bulletin.board.header: {0}* {1}{2} bulletin board
+has.been.disbanded.rivalry.ended: {0} has been disbanded. Rivalry has ended.
+has.been.disbanded.alliance.ended: {0} has been disbanded. Alliance has ended.
+clan.disbanded: Clan Disbanded
+1.color.day: 1 {0}day
+many.color.days: {0}{1} days
+does.not.match: Does not match a clan command
+simpleclans.command.failure: SimpleClans command failure: {0}
+insufficient.permissions: Insufficient permissions
+clan.is.not.verified: Clan is not verified
+not.a.member.of.any.clan: You are not a member of any clan
+minimum.to.make.alliance: Your clan must have at least {0} players in order to make alliances
+no.clan.matched: No clan matched
+cannot.ally.with.an.unverified.clan: You cannot ally with an unverified clan
+your.clans.are.not.allies: Your clans are not allies
+has.broken.the.alliance: {0} has broken the alliance with {1}
+at.least.one.leader.accept.the.alliance: At least one leader of the allied must be online to accept the alliance
+leaders.have.been.asked.for.an.alliance: {0} leaders have been asked for an alliance
+your.clans.are.already.allies: Your clans are already allies
+your.clan.cannot.create.rivals: Your clan cannot create rivals
+min.players.rivalries: Your clan must have at least {0} players in order to make rivalries
+this.player.is.already.banned: This player is already banned
+player.added.to.banned.list: Player added to banned list
+you.banned: You have been banned from clan commands
+cape.must.be.png: The cape url must point to a png image
+url.error: The URL is retuning an error. Please verify that it is working.
+changed.the.clan.cape: {0} has changed the clan''s cape
+clan.wide.friendly.fire.blocked: Clan-wide friendly-fire blocked
+clan.wide.friendly.fire.is.allowed: Clan-wide friendly-fire is allowed
+only.trusted.players.can.access.clan.coords: Only trusted players can access clan coords
+you.are.the.only.member.online: You are the only member online
+your.clan.tag.cannot.be.longer.than.characters: Your clan''s tag cannot be longer than {0} characters
+your.clan.tag.must.be.longer.than.characters: Your clan''s tag must be longer than {0} characters
+your.tag.cannot.contain.the.following.colors: Your tag cannot contain the following colors: {0}
+your.clan.name.cannot.be.longer.than.characters: Your clan''s name cannot be longer than {0} characters
+your.clan.name.must.be.longer.than.characters: Your clan''s name must be longer than {0} characters
+your.clan.tag.can.only.contain.letters.numbers.and.color.codes: Your clan's tag can only contain letters, numbers, and color codes
+your.clan.name.cannot.contain.color.codes: Your clan's name cannot contain color codes
+that.tag.name.is.disallowed: That tag name is disallowed
+you.must.first.resign: You must first resign from {0}
+clan.with.this.tag.already.exists: A clan with this tag already exists
+get.your.clan.verified.to.access.advanced.features: Get your clan verified to access advanced features
+clan.created: Clan {0} created
+leaders.must.be.online.to.vote.on.demotion: All leaders other than the demoted must be online to vote on this demotion
+demotion.vote.has.been.requested.from.all.leaders: Demotion vote has been requested from all leaders
+player.is.not.a.leader.of.your.clan: The player is not a leader of your clan
+clan.has.been.disbanded: Clan {0} has been disbanded
+clan.disband.vote.has.been.requested.from.all.leaders: Clan disband vote has been requested from all leaders
+friendy.fire.is.now.managed.by.your.clan: Friendy-fire is now managed by your clan
+personal.friendly.fire.is.set.to.allowed: Personal friendly-fire is set to allowed
+global.friendy.fire.is.now.managed.by.each.clan: Global friendy-fire is now managed by each clan
+global.friendy.fire.is.already.being.managed.by.each.clan: Global friendy-fire is already being managed by each clan
+global.friendly.fire.is.set.to.allowed: Global friendly-fire is set to allowed
+global.friendly.fire.is.already.being.allowed: Global friendly-fire is already being allowed
+no.player.matched: No player matched
+the.player.doesn.t.not.have.the.permissions.to.join.clans: The player doesn't not have the permissions to join clans
+you.cannot.invite.yourself: You cannot invite yourself
+this.player.is.banned.from.using.clan.commands: This player is banned from using clan commands
+the.player.is.already.member.of.another.clan: The player is already member of another clan
+has.been.asked.to.join: {0} has been asked to join {1}
+you.cannot.kick.yourself: You cannot kick yourself
+the.player.is.not.a.member.of.your.clan: The player is not a member of your clan
+you.cannot.kick.another.leader: You cannot kick another leader
+has.been.kicked.by: {0} has been kicked by {1}
+no.clans.have.been.created: No clans have been created
+total.clans: Total clans:
+legend: Legend:
+kill.type.civilian: Kill Type: {0}Civilian
+no.player.data.found: No player data found
+kill.type.0: Kill Type: {0}
+s.player.info: {0}''s player info
+clan.0: Clan: {0}
+status.0: Status: {0}
+rank.0: Rank: {0}
+kdr.0: KDR: {0}
+deaths.0: Deaths: {0}
+join.date.0: Join Date: {0}
+last.seen.0: Last Seen: {0}
+past.clans.0: Past Clans: {0}
+inactive.0: Inactive: {0}
+kill.totals: Kill Totals:
+clan.commands: clan commands
+you.can.only.modify.the.color.and.case.of.the.tag: You can only modify the color and case of the tag
+tag.changed.to.0: Tag changed to {0}
+name.0: Name: {0}
+leaders.0: Leaders: {0}
+members.online.0: Members Online: {0}
+allies.0: Allies: {0}
+rivals.0: Rivals: {0}
+founded.0: Founded: {0}
+the.member.to.be.promoted.must.be.online: The member to be promoted must be online
+the.player.does.not.have.the.permissions.to.lead.a.clan: The player does not have the permissions to lead a clan
+you.cannot.promote.yourself: You cannot promote yourself
+all.leaders.must.be.online.to.vote.on.this.promotion: All leaders must be online to vote on this promotion
+the.player.is.already.a.leader: The player is already a leader
+configuration.reloaded: Configuration reloaded
+last.leader.cannot.resign.you.must.appoint.another.leader.or.disband.the.clan: Last leader cannot resign.You must appoint another leader or disband the clan
+0.has.resigned: {0} has resigned
+only.trusted.players.can.access.clan.stats: Only trusted players can access clan stats
+you.cannot.trust.yourself: You cannot trust yourself
+leaders.are.already.trusted: Leaders are already trusted
+this.player.is.already.trusted: This player is already trusted
+has.been.given.trusted.status.by: {0} has been given trusted status by {1}
+this.player.is.not.banned: This player is not banned
+player.removed.from.the.banned.list: Player removed from the banned list
+you.have.been.unbanned.from.clan.commands: You have been unbanned from clan commands
+you.cannot.untrust.yourself: You cannot untrust yourself
+leaders.cannot.be.untrusted: Leaders cannot be untrusted
+this.player.is.already.untrusted: This player is already untrusted
+has.been.given.untrusted.status.by: {0} has been given untrusted status by {1}
+the.clan.does.not.exist: The clan does not exist
+the.clan.is.already.verified: The clan is already verified
+the.clan.has.been.verified: The clan has been verified
+clan.0.has.been.verified: Clan {0} has been verified!
+only.trusted.players.can.access.clan.vitals: Only trusted players can access clan vitals
+total.clan.players.0: Total clan players: {0}
+proposing.war: {0} is proposing to start a war with {1}
+you.can.only.start.war.with.rivals: You can only start war with rivals
+leaders.have.been.asked.to.accept.the.war.request: {0} leaders have been asked to accept the war request
+leaders.asked.to.end.rivalry: {0} leaders have been asked to end the war
+proposing.to.end.the.war: {0} is proposing to end the war with {1}
+clans.already.at.war: Your clans are already in war
+clans.not.at.war: Your clans are not at war
+you.are.at.war: {0} is now at war with {1}
+denied.war.req: {0} denied the war request sent by {1}
+you.are.no.longer.at.war: {0} is no longer at war with {1}
+end.war.denied: Request to end the war has been denied by {0}
+denied.war.end: {0} denied {1}''s request to end the war
+0.war: /{0} war{1} start/end [tag] - Start or end a war
+has.initiated.a.rivalry: {0} has initiated a rivalry with {1}
+start: start
+end: end
+add: add
+remove: remove
+allow: allow
+block: block
+auto: auto
+war: war
+0.s.sword.1.2.b.bow.3.4.a.arrow: {0}S: Sword{1}, {2}B: Bow{3}, {4}A: Arrow
+weapon.S: S
+weapon.B: B
+weapon.A: A
+materials: Materials
+armor.h: H
+armor.c: C
+armor.l: L
+armor.B: B
+diamond: diamond
+gold: gold
+wood: wood
+server.announce: Server Announce
+clan.announce: Clan Announce
+leader.announce: Leader Announce
+hunger: Hunger
+stone: Stone
+iron: Iron
+the.clan.cannot.be.rivaled: The clan cannot be rivaled
+bboff: BB toggled off
+bbon: BB toggled on
+tagoff: Tag toggled off
+tagon: Tag toggled on
+home.base.only.once: Home base can only be set once
+now.at.homebase: You are now at {0}''s home base
+hombase.set: Clan home-base set to: {0}
+hombase.mod.set: {0}''s home-base set to:
+hombase.cleared: Clan home-base cleared
+hombase.not.set: Home-base not set
+rival.limit.reached: You have reached the rival limit.  You cannot rival any more clans.
+you.moved.teleport.cancelled: You moved, teleport cancelled
+waiting.for.teleport.stand.still.for.0.seconds: Waiting for teleport, stand still for {0} seconds
+no.teleport: You are not allowed to teleport to that location
+on: on
+off: off
+leave: leave
+join: join
+player.rank.changed: Rank has been set
+your.clans.are.already.rivals: Your clans are already rivals
+player.got.money: You got {0} for killing {1} based on you KDR: {2}
+cleared.bb: Cleared the bulletin board
