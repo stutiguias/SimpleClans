@@ -228,7 +228,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
 
         if (days < 1)
         {
-            return SimpleClans.getInstance().getLang("today");
+            return SimpleClans.langManager.today;
         }
         else if (Math.round(days) == 1)
         {

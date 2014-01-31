@@ -3,13 +3,8 @@ package net.sacredlabyrinth.phaed.simpleclans;
 import net.sacredlabyrinth.phaed.simpleclans.listeners.SCEntityListener;
 import net.sacredlabyrinth.phaed.simpleclans.listeners.SCPlayerListener;
 import net.sacredlabyrinth.phaed.simpleclans.managers.*;
-import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.PropertyResourceBundle;
@@ -22,7 +17,6 @@ import java.util.logging.Logger;
  */
 public class SimpleClans extends JavaPlugin {
 
-    private final ArrayList<String> messages = new ArrayList<>();
     private static SimpleClans instance;
     private static final Logger logger = Logger.getLogger("Minecraft");
     private ClanManager clanManager;
@@ -32,7 +26,7 @@ public class SimpleClans extends JavaPlugin {
     private PermissionsManager permissionsManager;
     private CommandManager commandManager;
     private TeleportManager teleportManager;
-    private ResourceBundle lang;
+    public static LangManager langManager;
 
     /**
      * @return the logger
@@ -70,9 +64,7 @@ public class SimpleClans extends JavaPlugin {
         instance = this;
         settingsManager = new SettingsManager();
 
-        lang = PropertyResourceBundle.getBundle("languages.lang");
-
-        logger.info(MessageFormat.format(lang.getString("version.loaded"), getDescription().getName(), getDescription().getVersion()));
+        logger.info(MessageFormat.format("Simple Clan {0} - LITE Loaded", getDescription().getVersion()));
 
         permissionsManager = new PermissionsManager();
         requestManager = new RequestManager();
@@ -80,7 +72,8 @@ public class SimpleClans extends JavaPlugin {
         storageManager = new StorageManager();
         commandManager = new CommandManager();
         teleportManager = new TeleportManager();
-
+        langManager = new LangManager();
+        
         getServer().getPluginManager().registerEvents(new SCEntityListener(), this);
         getServer().getPluginManager().registerEvents(new SCPlayerListener(), this);
 
@@ -100,7 +93,7 @@ public class SimpleClans extends JavaPlugin {
     public ClanManager getClanManager() {
         return clanManager;
     }
-
+    
     /**
      * @return the requestManager
      */
@@ -134,14 +127,6 @@ public class SimpleClans extends JavaPlugin {
      */
     public CommandManager getCommandManager() {
         return commandManager;
-    }
-
-    /**
-     * @param msg
-     * @return the lang
-     */
-    public String getLang(String msg) {
-        return lang.getString(msg);
     }
 
     public TeleportManager getTeleportManager() {

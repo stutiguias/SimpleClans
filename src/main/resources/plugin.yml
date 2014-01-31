@@ -9,10 +9,6 @@ permissions:
     description: Can reload configuration
   simpleclans.admin.all-seeing-eye:
     description: Can see all clan chats
-  simpleclans.mod.verify:
-    description: Can verify simpleclans
-  simpleclans.mod.ban:
-    description: Can ban players from the entire plugin
   simpleclans.mod.disband:
     description: Can disband any clan
   simpleclans.mod.globalff:
@@ -45,10 +41,6 @@ permissions:
     description: Can view his own clan's member list
   simpleclans.member.lookup:
     description: Can view his own player info
-  simpleclans.member.vitals:
-    description: Can view his clan's vitals
-  simpleclans.member.coords:
-    description: Can view his clan's coords
   simpleclans.member.stats:
     description: Can view his simpleclans stats
   simpleclans.member.bb:
@@ -145,8 +137,6 @@ permissions:
       simpleclans.member.profile: true
       simpleclans.member.roster: true
       simpleclans.member.lookup: true
-      simpleclans.member.vitals: true
-      simpleclans.member.coords: true
       simpleclans.member.stats: true
       simpleclans.member.bb: true
       simpleclans.member.bb-add: true

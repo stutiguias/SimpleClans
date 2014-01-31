@@ -22,8 +22,6 @@ public final class CommandManager
     private final LeaderboardCommand leaderboardCommand;
     private final AlliancesCommand alliancesCommand;
     private final RivalriesCommand rivalriesCommand;
-    private final VitalsCommand vitalsCommand;
-    private final CoordsCommand coordsCommand;
     private final StatsCommand statsCommand;
     private final AllyCommand allyCommand;
     private final RivalCommand rivalCommand;
@@ -64,8 +62,6 @@ public final class CommandManager
         leaderboardCommand = new LeaderboardCommand();
         alliancesCommand = new AlliancesCommand();
         rivalriesCommand = new RivalriesCommand();
-        vitalsCommand = new VitalsCommand();
-        coordsCommand = new CoordsCommand();
         statsCommand = new StatsCommand();
         allyCommand = new AllyCommand();
         rivalCommand = new RivalCommand();
@@ -92,8 +88,8 @@ public final class CommandManager
     }
 
     /**
+     * @param sender
      * @param args
-     * @return
      */
     public void processClan(CommandSender sender, String[] args)
     {
@@ -152,14 +148,6 @@ public final class CommandManager
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("rivalries.command")))
                     {
                         rivalriesCommand.execute(player, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("vitals.command")))
-                    {
-                        vitalsCommand.execute(player, subargs);
-                    }
-                    else if (subcommand.equalsIgnoreCase(plugin.getLang("coords.command")))
-                    {
-                        coordsCommand.execute(player, subargs);
                     }
                     else if (subcommand.equalsIgnoreCase(plugin.getLang("stats.command")))
                     {
