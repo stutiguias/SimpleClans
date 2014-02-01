@@ -86,6 +86,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
         return other.getName().equals(this.getName());
     }
 
+    @Override
     public int compareTo(ClanPlayer other)
     {
         return this.getName().compareToIgnoreCase(other.getName());
@@ -232,11 +233,11 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
         }
         else if (Math.round(days) == 1)
         {
-            return MessageFormat.format(SimpleClans.getInstance().getLang("1.color.day"), ChatColor.GRAY);
+            return MessageFormat.format(SimpleClans.langManager.colorDay, ChatColor.GRAY);
         }
         else
         {
-            return MessageFormat.format(SimpleClans.getInstance().getLang("many.color.days"), Math.round(days), ChatColor.GRAY);
+            return MessageFormat.format(SimpleClans.langManager.manyColorDays, Math.round(days), ChatColor.GRAY);
         }
     }
 
@@ -554,7 +555,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
 
         if (out.trim().isEmpty())
         {
-            return SimpleClans.getInstance().getLang("none");
+            return SimpleClans.langManager.none;
         }
 
         return out;
@@ -567,7 +568,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
      */
     public HashSet<String> getPastClans()
     {
-        HashSet<String> pc = new HashSet<String>();
+        HashSet<String> pc = new HashSet<>();
         pc.addAll(pastClans);
         return pc;
     }
@@ -668,7 +669,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
 
         // writing the channel state settings flags
 
-        List<Boolean> settings = new LinkedList<Boolean>();
+        List<Boolean> settings = new LinkedList<>();
         settings.add(globalChat);
         settings.add(allyChat);
         settings.add(clanChat);

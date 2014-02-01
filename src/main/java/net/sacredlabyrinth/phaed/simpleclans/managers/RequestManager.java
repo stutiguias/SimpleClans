@@ -13,8 +13,8 @@ import org.bukkit.entity.Player;
  */
 public final class RequestManager
 {
-    private SimpleClans plugin;
-    private HashMap<String, Request> requests = new HashMap<String, Request>();
+    private final SimpleClans plugin;
+    private final HashMap<String, Request> requests = new HashMap<>();
 
     /**
      *

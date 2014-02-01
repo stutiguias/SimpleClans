@@ -9,7 +9,7 @@ import java.util.List;
  */
 public final class Request
 {
-    private List<ClanPlayer> acceptors = new ArrayList<ClanPlayer>();
+    private List<ClanPlayer> acceptors = new ArrayList<>();
     private Clan clan;
     private String msg;
     private String target;
