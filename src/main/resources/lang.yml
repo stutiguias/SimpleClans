@@ -37,7 +37,7 @@ usage:
     usageWar: "Usage: /{0} war start/end [tag]"
     setrank: "Usage: /{0} setrank [player] [rank], rank can be multiple worlds and contain &f color codes"
     clanff: "Usage: /{0} clanff allow/block"
-    createTag: "Usage: /{0} create [tag] [name]"
+    create.tag: "Usage: /{0} create [tag] [name]"
     demoteLeader: "Usage: /{0} demote [leader]"
     disband: "Usage: /{0} disband"
     ffAllowAuto: "Usage: /{0} ff allow/auto"
@@ -98,7 +98,7 @@ help:
     homeClearMenu: "/{0} home clear{1} - Clear the clan's home base"
     war: "/{0} war{1} start/end [tag] - Start or end a war"
     exampleClanModtag: "Example: /clan modtag &4K&fo&4L"
-    exampleClanCreate: "Example: /clan create &4Kol Knights of the Labyrinth"
+    example.clan.create: "Example: /clan create &4Kol Knights of the Labyrinth"
 	
 names:
     clan: Clan

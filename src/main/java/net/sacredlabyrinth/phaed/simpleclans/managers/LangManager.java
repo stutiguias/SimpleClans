@@ -132,6 +132,24 @@ public final class LangManager
     public String hasBrokenAlliance;
     public String yourClansNotAllies;
     public String clearedBb;
+    public String allow;
+    public String clanWideFriendlyFireAllowed;
+    public String block;
+    public String clanWideFriendlyFireBlocked;
+    public String usageClanff;
+    public String clanCreated;
+    public String clanWithTagAlreadyExists;
+    public String youMustFirstResign;
+    public String TagNameDisallowed;
+    public String NameCannotContainColorCodes;
+    public String TagCanOnlyContainLettersNumbersColorCodes;
+    public String ClanNameNustBeLongerThanCharacters;
+    public String ClanTagCannotBeLongerCharacters;
+    public String ClanTagMustBeLongerThanCharacters;
+    public String TagCannotContainFollowingColors;
+    public String ClanNameCannotBeLongerThanCharacters;
+    public String usageCreateTag;
+    public String exampleClanCreate;
     
     public LangManager()
     {
@@ -284,6 +302,24 @@ public final class LangManager
         hasBrokenAlliance = getConfig().getString("has.broken.the.alliance");
         yourClansNotAllies = getConfig().getString("your.clans.are.not.allies");
         clearedBb = getConfig().getString("cleared.bb");
+        allow = getConfig().getString("names.allow");
+        clanWideFriendlyFireAllowed = getConfig().getString("clan.wide.friendly.fire.is.allowed");
+        block = getConfig().getString("names.block");
+        clanWideFriendlyFireBlocked = getConfig().getString("clan.wide.friendly.fire.blocked");
+        usageClanff = getConfig().getString("usage.clanff");
+        clanCreated = getConfig().getString("clan.created");
+        clanWithTagAlreadyExists = getConfig().getString("clan.with.this.tag.already.exists");
+        youMustFirstResign = getConfig().getString("you.must.first.resign");
+        TagNameDisallowed = getConfig().getString("that.tag.name.is.disallowed");
+        NameCannotContainColorCodes = getConfig().getString("your.clan.name.cannot.contain.color.codes");
+        TagCanOnlyContainLettersNumbersColorCodes = getConfig().getString("your.clan.tag.can.only.contain.letters.numbers.and.color.codes");
+        ClanNameNustBeLongerThanCharacters = getConfig().getString("your.clan.name.must.be.longer.than.characters");
+        ClanTagCannotBeLongerCharacters = getConfig().getString("your.clan.tag.cannot.be.longer.than.characters");
+        ClanTagMustBeLongerThanCharacters = getConfig().getString("your.clan.tag.must.be.longer.than.characters");
+        TagCannotContainFollowingColors = getConfig().getString("your.tag.cannot.contain.the.following.colors");
+        ClanNameCannotBeLongerThanCharacters = getConfig().getString("your.clan.name.cannot.be.longer.than.characters");
+        usageCreateTag = getConfig().getString("usage.create.tag");
+        exampleClanCreate = getConfig().getString("help.example.clan.create");
         
         save();
     }
