@@ -162,8 +162,8 @@ public final class ClanManager
     }
 
     /**
-     * Gets the ClanPlayer data object if a player is currently in a clan, null
-     * if he's not in a clan
+     * Gets the clanPlayer data object if a player is currently in a clan, null
+ if he's not in a clan
      *
      * @param player
      * @return
@@ -174,8 +174,9 @@ public final class ClanManager
     }
 
     /**
-     * Gets the ClanPlayer data object if a player is currently in a clan, null
-     * if he's not in a clan
+     * Gets the ClanPlclanPlayerobject if a player is currently in a clan, null
+     
+ s not in a clan
      *
      * @param playerName
      * @return
@@ -198,10 +199,13 @@ public final class ClanManager
     }
 
     /**
-     * Gets the ClanPlayer data object for the player, will retrieve disabled
-     * clan players as well, these are players who used to be in a clan but are
-     * not currently in one, their data file persists and can be accessed. their
-     * clan will be null though.
+     * Gets the ClanPlayer dclanPlayer for the player, will retrieve disabled
+     * clan
+  as well, these are players who used to be in a clan but are
+     * not curren
+ ne, their data file persists and can be accessed. their
+     * clan will be nul
+ .
      *
      * @param playerName
      * @return
@@ -212,7 +216,7 @@ public final class ClanManager
     }
 
     /**
-     * Gets the ClanPlayer object for the player, creates one if not found
+     * Gets the ClanPlayer object for the playclanPlayers one if not found
      *
      * @param playerName
      * @return

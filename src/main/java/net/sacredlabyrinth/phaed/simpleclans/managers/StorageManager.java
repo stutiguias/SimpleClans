@@ -23,9 +23,9 @@ import java.util.logging.Level;
 public final class StorageManager
 {
 
-    private SimpleClans plugin;
+    private final SimpleClans plugin;
     private DBCore core;
-    private HashMap<String, ChatBlock> chatBlocks = new HashMap<String, ChatBlock>();
+    private final HashMap<String, ChatBlock> chatBlocks = new HashMap<>();
 
     /**
      *
@@ -71,7 +71,7 @@ public final class StorageManager
 
             if (core.checkConnection())
             {
-                SimpleClans.log("[SimpleClans] " + plugin.getLang("mysql.connection.successful"));
+                SimpleClans.log("[SimpleClans] Connection with mysql SUCESS ! ");
 
                 if (!core.existsTable("sc_clans"))
                 {
@@ -105,7 +105,7 @@ public final class StorageManager
                 }
             } else
             {
-                SimpleClans.getInstance().getServer().getConsoleSender().sendMessage("[SimpleClans] " + ChatColor.RED + plugin.getLang("mysql.connection.failed"));
+                SimpleClans.getInstance().getServer().getConsoleSender().sendMessage("[SimpleClans] " + ChatColor.RED + "Mysql Fail to connect");
             }
         } else
         {
@@ -113,7 +113,7 @@ public final class StorageManager
 
             if (core.checkConnection())
             {
-                SimpleClans.log("[SimpleClans] " + plugin.getLang("sqlite.connection.successful"));
+                SimpleClans.log("[SimpleClans] Connection SQLite with sucess ! ");
 
                 if (!core.existsTable("sc_clans"))
                 {
@@ -147,7 +147,7 @@ public final class StorageManager
                 }
             } else
             {
-                SimpleClans.getInstance().getServer().getConsoleSender().sendMessage("[SimpleClans] " + ChatColor.RED + plugin.getLang("sqlite.connection.failed"));
+                SimpleClans.getInstance().getServer().getConsoleSender().sendMessage("[SimpleClans] " + ChatColor.RED + "SQLite Fail to Connect");
             }
         }
     }
@@ -182,7 +182,7 @@ public final class StorageManager
 
         if (clans.size() > 0)
         {
-            SimpleClans.log(MessageFormat.format("[SimpleClans] " + plugin.getLang("clans"), clans.size()));
+            SimpleClans.log(MessageFormat.format("[SimpleClans] " + SimpleClans.langManager.clans, clans.size()));
         }
 
         List<ClanPlayer> cps = retrieveClanPlayers();
@@ -201,7 +201,7 @@ public final class StorageManager
 
         if (cps.size() > 0)
         {
-            SimpleClans.log(MessageFormat.format("[SimpleClans] " + plugin.getLang("clan.players"), cps.size()));
+            SimpleClans.log(MessageFormat.format("[SimpleClans] " + SimpleClans.langManager.clanPlayers, cps.size()));
         }
     }
 
@@ -219,7 +219,7 @@ public final class StorageManager
 
         for (Clan clan : purge)
         {
-            SimpleClans.log("[SimpleClans] " + MessageFormat.format(plugin.getLang("purging.clan"), clan.getName()));
+            SimpleClans.log("[SimpleClans] " + MessageFormat.format(SimpleClans.langManager.purgingClan, clan.getName()));
             deleteClan(clan);
             clans.remove(clan);
         }
@@ -242,7 +242,7 @@ public final class StorageManager
 
         for (ClanPlayer cp : purge)
         {
-            SimpleClans.log("[SimpleClans] " + MessageFormat.format(plugin.getLang("purging.player.data"), cp.getName()));
+            SimpleClans.log("[SimpleClans] " + MessageFormat.format(SimpleClans.langManager.purgingPlayerData, cp.getName()));
             deleteClanPlayer(cp);
             cps.remove(cp);
         }

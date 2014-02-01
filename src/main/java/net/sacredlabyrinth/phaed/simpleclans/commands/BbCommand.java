@@ -30,18 +30,18 @@ public class BbCommand {
                     if (plugin.getPermissionsManager().has(player, "simpleclans.member.bb")) {
                         clan.displayBb(player);
                     } else {
-                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                     }
                 } else if (arg.length == 1 && arg[0].equalsIgnoreCase("clear")) {
                     if (plugin.getPermissionsManager().has(player, "simpleclans.leader.bb-clear")) {
                         if (cp.isTrusted() && cp.isLeader()) {
                             cp.getClan().clearBb();
-                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("cleared.bb"));
+                            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.clearedBb);
                         } else {
-                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+                            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
                         }
                     } else {
-                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                     }
                 } else if (plugin.getPermissionsManager().has(player, "simpleclans.member.bb-add")) {
                     if (cp.isTrusted()) {
@@ -49,13 +49,13 @@ public class BbCommand {
                         clan.addBb(player.getName(), ChatColor.AQUA + player.getName() + ": " + ChatColor.WHITE + msg);
                         plugin.getStorageManager().updateClan(clan);
                     } else {
-                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
                     }
                 } else {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                 }
         } else {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
         }
     }
 }

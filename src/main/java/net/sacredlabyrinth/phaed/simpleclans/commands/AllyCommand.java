@@ -28,7 +28,7 @@ public class AllyCommand
 
         if (!plugin.getPermissionsManager().has(player, "simpleclans.leader.ally"))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             return;
         }
 
@@ -36,7 +36,7 @@ public class AllyCommand
 
         if (cp == null)
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
             return;
         }
 
@@ -44,19 +44,19 @@ public class AllyCommand
 
         if (!clan.isLeader(player))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
             return;
         }
 
         if (arg.length != 2)
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.ally"), plugin.getSettingsManager().getCommandClan()));
+            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageAlly, plugin.getSettingsManager().getCommandClan()));
             return;
         }
 
         if (clan.getSize() < plugin.getSettingsManager().getClanMinSizeToAlly())
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("minimum.to.make.alliance"), plugin.getSettingsManager().getClanMinSizeToAlly()));
+            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.minimumMakeAlliance, plugin.getSettingsManager().getClanMinSizeToAlly()));
             return;
         }
 
@@ -65,11 +65,11 @@ public class AllyCommand
 
         if (ally == null)
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.clan.matched"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.noClanMatched);
             return;
         }
 
-        if (action.equals(plugin.getLang("add")))
+        if (action.equals(SimpleClans.langManager.add))
         {
             if (!clan.isAlly(ally.getTag()))
             {
@@ -78,34 +78,34 @@ public class AllyCommand
                 if (!onlineLeaders.isEmpty())
                 {
                     plugin.getRequestManager().addAllyRequest(cp, ally, clan);
-                    ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("leaders.have.been.asked.for.an.alliance"), Helper.capitalize(ally.getName())));
+                    ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.leadersHaveBeenAskedAlliance, Helper.capitalize(ally.getName())));
                 }
                 else
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("at.least.one.leader.accept.the.alliance"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.atLeastOneLeaderAcceptAlliance);
                 }
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clans.are.already.allies"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.yourClansAreAlreadyAllies);
             }
         }
-        else if (action.equals(plugin.getLang("remove")))
+        else if (action.equals(SimpleClans.langManager.remove))
         {
             if (clan.isAlly(ally.getTag()))
             {
                 clan.removeAlly(ally);
-                ally.addBb(cp.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.broken.the.alliance"), Helper.capitalize(clan.getName()), ally.getName()));
-                clan.addBb(cp.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.broken.the.alliance"), Helper.capitalize(cp.getName()), Helper.capitalize(ally.getName())));
+                ally.addBb(cp.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.hasBrokenAlliance, Helper.capitalize(clan.getName()), ally.getName()));
+                clan.addBb(cp.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.hasBrokenAlliance, Helper.capitalize(cp.getName()), Helper.capitalize(ally.getName())));
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clans.are.not.allies"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.yourClansNotAllies);
             }
         }
         else
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.ally"), plugin.getSettingsManager().getCommandClan()));
+            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageAlly, plugin.getSettingsManager().getCommandClan()));
         }
     }
 }

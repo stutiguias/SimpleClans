@@ -490,7 +490,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
     /**
      * (used internally)
      *
-     * @return the PackedPastClans
+     * @return the PackedPastclans
      */
     public String getPackedPastClans()
     {
@@ -509,7 +509,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
     /**
      * (used internally)
      *
-     * @param PackedPastClans the PackedPastClans to set
+     * @param PackedPastClans the PackedPastclans to set
      */
     public void setPackedPastClans(String PackedPastClans)
     {
@@ -564,7 +564,7 @@ public class ClanPlayer implements Serializable, Comparable<ClanPlayer>
     /**
      * Returns a list with all past clans color tags this player has been in
      *
-     * @return the pastClans
+     * @return the pastclans
      */
     public HashSet<String> getPastClans()
     {

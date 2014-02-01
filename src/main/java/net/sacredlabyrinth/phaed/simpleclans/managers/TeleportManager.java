@@ -18,8 +18,8 @@ import java.util.List;
 
 public final class TeleportManager
 {
-    private SimpleClans plugin;
-    private HashMap<String, TeleportState> waitingPlayers = new HashMap<String, TeleportState>();
+    private final SimpleClans plugin;
+    private final HashMap<String, TeleportState> waitingPlayers = new HashMap<>();
 
     /**
      *
@@ -45,7 +45,7 @@ public final class TeleportManager
 
         if (secs > 0)
         {
-            ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("waiting.for.teleport.stand.still.for.0.seconds"), secs));
+            ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.waitingTeleportStandStillSeconds, secs));
         }
     }
 
@@ -106,6 +106,7 @@ public final class TeleportManager
     {
         plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable()
         {
+            @Override
             public void run()
             {
                 for (Iterator iter = waitingPlayers.values().iterator(); iter.hasNext(); )
@@ -147,11 +148,11 @@ public final class TeleportManager
 
                                 player.teleport(new Location(loc.getWorld(), loc.getBlockX() + .5, loc.getBlockY(), loc.getBlockZ() + .5));
 
-                                ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("now.at.homebase"), state.getClanName()));
+                                ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.nowHomebase, state.getClanName()));
                             }
                             else
                             {
-                                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.moved.teleport.cancelled"));
+                                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.youMovedTeleportCancelled);
                             }
 
                             iter.remove();
@@ -160,7 +161,7 @@ public final class TeleportManager
                         {
                             if (!Helper.isSameBlock(player.getLocation(), state.getLocation()))
                             {
-                                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.moved.teleport.cancelled"));
+                                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.youMovedTeleportCancelled);
                                 iter.remove();
                             }
                             else

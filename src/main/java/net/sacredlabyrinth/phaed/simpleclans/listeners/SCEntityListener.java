@@ -22,7 +22,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 public class SCEntityListener implements Listener
 {
 
-    private SimpleClans plugin;
+    private final SimpleClans plugin;
 
     /**
      *
@@ -94,8 +94,8 @@ public class SCEntityListener implements Listener
                             {
                                 acp.getClan().addWarringClan(vcp.getClan());
                                 vcp.getClan().addWarringClan(acp.getClan());
-                                acp.getClan().addBb(acp.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("you.are.at.war"), Helper.capitalize(acp.getClan().getName()), vcp.getClan().getColorTag()));
-                                vcp.getClan().addBb(vcp.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("you.are.at.war"), Helper.capitalize(vcp.getClan().getName()), acp.getClan().getColorTag()));
+                                acp.getClan().addBb(acp.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.youAreWar, Helper.capitalize(acp.getClan().getName()), vcp.getClan().getColorTag()));
+                                vcp.getClan().addBb(vcp.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.youAreWar, Helper.capitalize(vcp.getClan().getName()), acp.getClan().getColorTag()));
                                 plugin.getStorageManager().addStrife(acp.getClan(), vcp.getClan(), -strifemax);
                             }
                         }
@@ -137,7 +137,7 @@ public class SCEntityListener implements Listener
                     for (ClanPlayer cp : acp.getClan().getOnlineMembers())
                     {
                         double money = Math.round((reward / acp.getClan().getOnlineMembers().size()) * 100D) / 100D;
-                        cp.toPlayer().sendMessage(ChatColor.AQUA + MessageFormat.format(plugin.getLang("player.got.money"), money, victim.getName(), kdr));
+                        cp.toPlayer().sendMessage(ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.playerGotMoney, money, victim.getName(), kdr));
                         plugin.getPermissionsManager().playerGrantMoney(cp.getName(), money);
                     }
                 }
