@@ -41,7 +41,7 @@ usage:
     demote.leader: "Usage: /{0} demote [leader]"
     personal.friendly.fire.is.set.to.allowed: "Usage: /{0} disband"
     ff.allow.auto: "Usage: /{0} ff allow/auto"
-    globalffAllowAuto: "Usage: /{0} globalff allow/auto"
+    globalff.allow.auto: "Usage: /{0} globalff allow/auto"
     permissionsPlayer: "Usage: /{0} permissions [clan] add/remove [permission]"
     invitePlayer: "Usage: /{0} invite [player]"
     kickPlayer: "Usage: /{0} kick [player]"
@@ -53,8 +53,8 @@ usage:
     rivalries: "Usage: /{0} rivalries"
     rosterTag: "Usage: /{0} roster [tag]"
     stats: "Usage: /{0} stats"
-    trustPlayer: "Usage: /{0} trust [player]"
-    untrustPlayer: "Usage: /{0} untrust [player]"
+    trust.player: "Usage: /{0} trust [player]"
+    untrust.player: "Usage: /{0} untrust [player]"
     leaderboard: "Usage: /{0} leaderboard"
 help:
     reload: "/{0} reload{1} - Reload configuration"
@@ -69,7 +69,7 @@ help:
     alliances: "/{0} alliances{1} - View all clan alliances"
     rivalries: "/{0} rivalries{1} - View all clan rivalries"
     roster: "/{0} roster{1} - View your clan''s member list"
-    rosterTag: "/{0} roster [tag]{1} - View a clan''s member list"
+    roster.tag: "/{0} roster [tag]{1} - View a clan''s member list"
     stats: "/{0} stats{1} - View your clan member''s stats"
     allyAddRemove: "/{0} ally add/remove [tag]{1} - Add/remove an ally clan"
     rivalAddRemove: "/{0} rival add/remove [tag]{1} - Add/remove a rival clan"
@@ -128,7 +128,7 @@ names:
     weights: Weights
     stats: stats
     profile: profile
-    civilianAbbreviation: Civ
+    civilian.abbreviation: Civ
     rank: Rank
     leaders: Leaders
     none: None
@@ -154,7 +154,7 @@ names:
     iron: "Iron"
 	
 messages:
-    killDeathRatio: "Kill/Death Ratio"
+    kill.death.ratio: "Kill/Death Ratio"
     nokillsfound: "No Kills Found"
     promoted.to.leader: "{0} has been promoted to leader"
     denied.demotion: "{0} denied the demotion of {1}. Consensus failed."

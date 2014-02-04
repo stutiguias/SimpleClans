@@ -36,10 +36,10 @@ public class ToggleCommand {
 
                 if (cp != null) {
                     if (cp.isBbEnabled()) {
-                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("bboff"));
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.bboff);
                         cp.setBbEnabled(false);
                     } else {
-                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("bbon"));
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.bbon);
                         cp.setBbEnabled(true);
                     }
                     plugin.getStorageManager().updateClanPlayer(cp);
@@ -53,10 +53,10 @@ public class ToggleCommand {
 
                 if (cp != null) {
                     if (cp.isTagEnabled()) {
-                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("tagoff"));
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.tagoff);
                         cp.setTagEnabled(false);
                     } else {
-                        ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("tagon"));
+                        ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.tagon);
                         cp.setTagEnabled(true);
                     }
                     plugin.getStorageManager().updateClanPlayer(cp);

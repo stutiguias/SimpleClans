@@ -45,17 +45,17 @@ public class StatsCommand
                             ChatBlock chatBlock = new ChatBlock();
 
 
-                            ChatBlock.saySingle(player, plugin.getSettingsManager().getPageClanNameColor() + Helper.capitalize(clan.getName()) + subColor+ " " + plugin.getLang("stats") + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
+                            ChatBlock.saySingle(player, plugin.getSettingsManager().getPageClanNameColor() + Helper.capitalize(clan.getName()) + subColor+ " " + SimpleClans.langManager.NamesStats + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
                             ChatBlock.sendBlank(player);
 
-                            ChatBlock.sendMessage(player, headColor + plugin.getLang("kdr") + " = " + subColor + plugin.getLang("kill.death.ratio"));
-                            ChatBlock.sendMessage(player, headColor + plugin.getLang("weights") + " = " + plugin.getLang("rival") + ": " + subColor + plugin.getSettingsManager().getKwRival() + headColor + " " + plugin.getLang("neutral") + ": " + subColor + plugin.getSettingsManager().getKwNeutral() + headColor + " " + plugin.getLang("civilian") + ": " + subColor + plugin.getSettingsManager().getKwCivilian());
+                            ChatBlock.sendMessage(player, headColor + SimpleClans.langManager.kdr + " = " + subColor + SimpleClans.langManager.killDeathRatio);
+                            ChatBlock.sendMessage(player, headColor + SimpleClans.langManager.weights + " = " + SimpleClans.langManager.NamesRival + ": " + subColor + plugin.getSettingsManager().getKwRival() + headColor + " " + SimpleClans.langManager.neutral + ": " + subColor + plugin.getSettingsManager().getKwNeutral() + headColor + " " + SimpleClans.langManager.civilian + ": " + subColor + plugin.getSettingsManager().getKwCivilian());
                             ChatBlock.sendBlank(player);
 
                             chatBlock.setFlexibility(true, false, false, false, false, false, false);
                             chatBlock.setAlignment("l", "c", "c", "c", "c", "c", "c");
 
-                            chatBlock.addRow("  " + headColor + plugin.getLang("name"), plugin.getLang("kdr"), plugin.getLang("rival"), plugin.getLang("neutral"), plugin.getLang("civilian.abbreviation"), plugin.getLang("deaths"));
+                            chatBlock.addRow("  " + headColor + SimpleClans.langManager.name,SimpleClans.langManager.kdr, SimpleClans.langManager.NamesRival, SimpleClans.langManager.neutral, SimpleClans.langManager.civilianAbbreviation, SimpleClans.langManager.NamesDeath);
 
                             List<ClanPlayer> leaders = clan.getLeaders();
                             plugin.getClanManager().sortClanPlayersByKDR(leaders);
@@ -93,29 +93,29 @@ public class StatsCommand
                             {
                                 plugin.getStorageManager().addChatBlock(player, chatBlock);
                                 ChatBlock.sendBlank(player);
-                                ChatBlock.sendMessage(player, headColor + MessageFormat.format(plugin.getLang("view.next.page"), plugin.getSettingsManager().getCommandMore()));
+                                ChatBlock.sendMessage(player, headColor + MessageFormat.format(SimpleClans.langManager.ViewNextPage, plugin.getSettingsManager().getCommandMore()));
                             }
 
                             ChatBlock.sendBlank(player);
                         }
                         else
                         {
-                            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.stats"), plugin.getSettingsManager().getCommandClan()));
+                            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageStats, plugin.getSettingsManager().getCommandClan()));
                         }
                     }
                     else
                     {
-                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.stats"));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.OnlyTrustedPlayersCanAccessClanStats);
                     }
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
             }
         }
         else
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
         }
     }
 }

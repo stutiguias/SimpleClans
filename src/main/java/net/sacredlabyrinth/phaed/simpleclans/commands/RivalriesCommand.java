@@ -41,13 +41,13 @@ public class RivalriesCommand
                 ChatBlock chatBlock = new ChatBlock();
 
                 ChatBlock.sendBlank(player);
-                ChatBlock.saySingle(player, plugin.getSettingsManager().getServerName() + subColor + " " + plugin.getLang("rivalries") + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
+                ChatBlock.saySingle(player, plugin.getSettingsManager().getServerName() + subColor + " " + SimpleClans.langManager.NamesRivalries + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
                 ChatBlock.sendBlank(player);
-                ChatBlock.sendMessage(player, headColor + plugin.getLang("legend") +  ChatColor.DARK_RED + " [" + plugin.getLang("war") + "]");
+                ChatBlock.sendMessage(player, headColor + SimpleClans.langManager.MenuLegend +  ChatColor.DARK_RED + " [" + SimpleClans.langManager.NamesWar + "]");
                 ChatBlock.sendBlank(player);
 
                 chatBlock.setAlignment("l", "l");
-                chatBlock.addRow(plugin.getLang("clan"), plugin.getLang("rivals"));
+                chatBlock.addRow(SimpleClans.langManager.clan, SimpleClans.langManager.NamesRivals);
 
                 for (Clan clan : clans)
                 {
@@ -60,19 +60,19 @@ public class RivalriesCommand
                 {
                     plugin.getStorageManager().addChatBlock(player, chatBlock);
                     ChatBlock.sendBlank(player);
-                    ChatBlock.sendMessage(player, headColor + MessageFormat.format(plugin.getLang("view.next.page"), plugin.getSettingsManager().getCommandMore()));
+                    ChatBlock.sendMessage(player, headColor + MessageFormat.format(SimpleClans.langManager.ViewNextPage, plugin.getSettingsManager().getCommandMore()));
                 }
 
                 ChatBlock.sendBlank(player);
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             }
         }
         else
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.rivalries"), plugin.getSettingsManager().getCommandClan()));
+            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageRivalries, plugin.getSettingsManager().getCommandClan()));
         }
     }
 }

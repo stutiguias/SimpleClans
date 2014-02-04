@@ -34,34 +34,34 @@ public class GlobalffCommand
             {
                 if (plugin.getSettingsManager().isGlobalff())
                 {
-                    ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("global.friendly.fire.is.already.being.allowed"));
+                    ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.globalFriendlyFireAlreadyBeingAllowed);
                 }
                 else
                 {
                     plugin.getSettingsManager().setGlobalff(true);
-                    ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("global.friendly.fire.is.set.to.allowed"));
+                    ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.globalFriendlyFireSetAllowed);
                 }
             }
             else if (action.equalsIgnoreCase(SimpleClans.langManager.auto))
             {
                 if (!plugin.getSettingsManager().isGlobalff())
                 {
-                    ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("global.friendy.fire.is.already.being.managed.by.each.clan"));
+                    ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.globalFriendyFireAlreadyManagedEachClan);
                 }
                 else
                 {
                     plugin.getSettingsManager().setGlobalff(false);
-                    ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("global.friendy.fire.is.now.managed.by.each.clan"));
+                    ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.globalFriendyFireNowManagedEachClan);
                 }
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.globalff.allow.auto"), plugin.getSettingsManager().getCommandClan()));
+                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageGlobalffAllowAuto, plugin.getSettingsManager().getCommandClan()));
             }
         }
         else
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.ff.allow.auto"), plugin.getSettingsManager().getCommandClan()));
+            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.UsageffAllowAuto, plugin.getSettingsManager().getCommandClan()));
         }
     }
 }
