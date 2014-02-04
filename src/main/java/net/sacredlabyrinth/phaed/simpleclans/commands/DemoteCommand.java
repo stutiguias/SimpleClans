@@ -16,6 +16,8 @@ import java.text.MessageFormat;
  */
 public class DemoteCommand
 {
+    SimpleClans plugin;
+    
     public DemoteCommand()
     {
     }
@@ -27,65 +29,70 @@ public class DemoteCommand
      */
     public void execute(Player player, String[] arg)
     {
-        SimpleClans plugin = SimpleClans.getInstance();
+        plugin = SimpleClans.getInstance();
 
-        if (plugin.getPermissionsManager().has(player, "simpleclans.leader.demote"))
+        if (isValid(player))
         {
-            ClanPlayer cp = plugin.getClanManager().getClanPlayer(player);
+            ClanPlayer clanPlayer = plugin.getClanManager().getClanPlayer(player);
 
-            if (cp != null)
+            if (clanPlayer == null)
             {
-                Clan clan = cp.getClan();
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
+                return;
+            }
+            
+            Clan clan = clanPlayer.getClan();
 
-                if (clan.isLeader(player))
+            if (!clan.isLeader(player))
+            {
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
+                return;
+            }
+            
+            if (arg.length == 1)
+            {
+                String demotedName = arg[0];
+
+                if (clan.allOtherLeadersOnline(demotedName))
                 {
-                    if (arg.length == 1)
+                    if (clan.isLeader(demotedName))
                     {
-                        String demotedName = arg[0];
-
-                        if (clan.allOtherLeadersOnline(demotedName))
+                        if (clan.getLeaders().size() == 1|| !plugin.getSettingsManager().isConfirmationForDemote())
                         {
-                            if (clan.isLeader(demotedName))
-                            {
-                                if (clan.getLeaders().size() == 1|| !plugin.getSettingsManager().isConfirmationForDemote())
-                                {
-                                    clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("demoted.back.to.member"), Helper.capitalize(demotedName)));
-                                    clan.demote(demotedName);
-                                }
-                                else
-                                {
-                                    plugin.getRequestManager().addDemoteRequest(cp, demotedName, clan);
-                                    ChatBlock.sendMessage(player, ChatColor.AQUA + plugin.getLang("demotion.vote.has.been.requested.from.all.leaders"));
-                                }
-                            }
-                            else
-                            {
-                                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("player.is.not.a.leader.of.your.clan"));
-                            }
+                            clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.demotedBackMember, Helper.capitalize(demotedName)));
+                            clan.demote(demotedName);
                         }
                         else
                         {
-                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("leaders.must.be.online.to.vote.on.demotion"));
+                            plugin.getRequestManager().addDemoteRequest(clanPlayer, demotedName, clan);
+                            ChatBlock.sendMessage(player, ChatColor.AQUA + SimpleClans.langManager.demotionVoteBeenRequestedFromAllLeaders);
                         }
                     }
                     else
                     {
-                        ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.demote.leader"), plugin.getSettingsManager().getCommandClan()));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.playerNotLeaderYourClan);
                     }
                 }
                 else
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.leadersMustOnlineVoteDemotion);
                 }
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageDemoteLeader, plugin.getSettingsManager().getCommandClan()));
             }
         }
-        else
+    }
+    
+    public boolean isValid(Player player) {
+        
+        if (plugin.getPermissionsManager().has(player, "simpleclans.leader.demote"))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
+            return false;
         }
+        
+        return true;
     }
 }

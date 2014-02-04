@@ -150,6 +150,17 @@ public final class LangManager
     public String ClanNameCannotBeLongerThanCharacters;
     public String usageCreateTag;
     public String exampleClanCreate;
+    public String demotionVoteBeenRequestedFromAllLeaders;
+    public String playerNotLeaderYourClan;
+    public String leadersMustOnlineVoteDemotion;
+    public String usageDemoteLeader;
+    public String clanHasBeenDisbanded;
+    public String clanDisbandVoteHasBeenRequestedAllLeaders;
+    public String UsageDisband;
+    public String auto;
+    public String personalFriendlyFireSetAllowed;
+    public String friendyFireNowManagedYourClan;
+    public String UsageffAllowAuto;
     
     public LangManager()
     {
@@ -320,7 +331,19 @@ public final class LangManager
         ClanNameCannotBeLongerThanCharacters = getConfig().getString("your.clan.name.cannot.be.longer.than.characters");
         usageCreateTag = getConfig().getString("usage.create.tag");
         exampleClanCreate = getConfig().getString("help.example.clan.create");
+        demotionVoteBeenRequestedFromAllLeaders = getConfig().getString("demotion.vote.has.been.requested.from.all.leaders");
+        playerNotLeaderYourClan = getConfig().getString("player.is.not.a.leader.of.your.clan");
+        leadersMustOnlineVoteDemotion = getConfig().getString("leaders.must.be.online.to.vote.on.demotion");
+        usageDemoteLeader = getConfig().getString("usage.demote.leader");
+        clanHasBeenDisbanded = getConfig().getString("clan.has.been.disbanded");
+        clanDisbandVoteHasBeenRequestedAllLeaders = getConfig().getString("clan.disband.vote.has.been.requested.from.all.leaders");
+        UsageDisband = getConfig().getString("usage.disband");
+        auto = getConfig().getString("names.auto");
+        personalFriendlyFireSetAllowed = getConfig().getString("personal.friendly.fire.is.set.to.allowed");
+        friendyFireNowManagedYourClan = getConfig().getString("friendy.fire.is.now.managed.by.your.clan");
+        UsageffAllowAuto = getConfig().getString("usage.ff.allow.auto");
         
+                
         save();
     }
 
