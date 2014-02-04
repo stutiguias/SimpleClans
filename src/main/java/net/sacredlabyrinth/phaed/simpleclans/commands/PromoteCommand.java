@@ -27,7 +27,7 @@ public class PromoteCommand
 
         if (!plugin.getPermissionsManager().has(player, "simpleclans.leader.promote"))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             return;
         }
 
@@ -35,7 +35,7 @@ public class PromoteCommand
 
         if (cp == null)
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
             return;
         }
 
@@ -43,7 +43,7 @@ public class PromoteCommand
 
         if (!clan.isLeader(player))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
             return;
         }
 

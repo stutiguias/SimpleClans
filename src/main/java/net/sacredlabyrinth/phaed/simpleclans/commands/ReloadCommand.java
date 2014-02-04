@@ -42,7 +42,7 @@ public class ReloadCommand
         {
             SimpleClans.getInstance().getPermissionsManager().updateClanPermissions(clan);
         }
-        ChatBlock.sendMessage(sender, ChatColor.AQUA + plugin.getLang("configuration.reloaded"));
+        ChatBlock.sendMessage(sender, ChatColor.AQUA + SimpleClans.langManager.configReload);
 
     }
 }

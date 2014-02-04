@@ -40,7 +40,7 @@ public class LookupCommand
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             }
         }
         else if (arg.length == 1)
@@ -51,7 +51,7 @@ public class LookupCommand
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             }
         }
         else

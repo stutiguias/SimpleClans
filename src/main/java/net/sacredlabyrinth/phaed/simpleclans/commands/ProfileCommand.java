@@ -40,7 +40,7 @@ public class ProfileCommand
 
                 if (cp == null)
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
                 }
                 else
                 {
@@ -49,7 +49,7 @@ public class ProfileCommand
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             }
         }
         else if (arg.length == 1)
@@ -60,12 +60,12 @@ public class ProfileCommand
 
                 if (clan == null)
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.clan.matched"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.noClanMatched);
                 }
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             }
         }
         else

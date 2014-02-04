@@ -48,62 +48,62 @@ public class RivalCommand
                                     {
                                         if (!plugin.getSettingsManager().isUnrivable(rival.getTag()))
                                         {
-                                                if (action.equals(plugin.getLang("add")))
+                                                if (action.equals(SimpleClans.langManager.add))
                                                 {
                                                     if (!clan.reachedRivalLimit())
                                                     {
                                                         if (!clan.isRival(rival.getTag()))
                                                         {
                                                             clan.addRival(rival);
-                                                            rival.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.initiated.a.rivalry"), Helper.capitalize(clan.getName()), rival.getName()));
-                                                            clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.initiated.a.rivalry"), Helper.capitalize(player.getName()), Helper.capitalize(rival.getName())));
+                                                            rival.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.hasInitiatedRivalry, Helper.capitalize(clan.getName()), rival.getName()));
+                                                            clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.hasInitiatedRivalry, Helper.capitalize(player.getName()), Helper.capitalize(rival.getName())));
                                                         }
                                                         else
                                                         {
-                                                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clans.are.already.rivals"));
+                                                            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.yourClansAreAlreadyRivals);
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("rival.limit.reached"));
+                                                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.rivalLimitReached);
                                                     }
 
                                                 }
-                                                else if (action.equals(plugin.getLang("remove")))
+                                                else if (action.equals(SimpleClans.langManager.remove))
                                                 {
                                                     if (clan.isRival(rival.getTag()))
                                                     {
                                                         plugin.getRequestManager().addRivalryBreakRequest(cp, rival, clan);
-                                                        ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("leaders.asked.to.end.rivalry"), Helper.capitalize(rival.getName())));
+                                                        ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.leadersAskedEndRivalry, Helper.capitalize(rival.getName())));
                                                     }
                                                     else
                                                     {
-                                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clans.are.not.rivals"));
+                                                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.yourClansAreNotRivals);
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.ally"), plugin.getSettingsManager().getCommandClan()));
+                                                    ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageAlly, plugin.getSettingsManager().getCommandClan()));
                                                 }
                                         }
                                         else
                                         {
-                                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.clan.cannot.be.rivaled"));
+                                            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.ClanCannotBeRivaled);
                                         }
                                     }
                                     else
                                     {
-                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.clan.matched"));
+                                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.noClanMatched);
                                     }
                                 }
                                 else
                                 {
-                                    ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("min.players.rivalries"), plugin.getSettingsManager().getClanMinSizeToRival()));
+                                    ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.minPlayersRivalries, plugin.getSettingsManager().getClanMinSizeToRival()));
                                 }
                             }
                             else
                             {
-                                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.rival"), plugin.getSettingsManager().getCommandClan()));
+                                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageRival, plugin.getSettingsManager().getCommandClan()));
                             }
                         }
                         else
@@ -113,7 +113,7 @@ public class RivalCommand
                     }
                     else
                     {
-                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clan.cannot.create.rivals"));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.yourClanCannotCreateRivals);
                     }
             }
             else

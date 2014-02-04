@@ -52,7 +52,7 @@ public class HomeCommand
 
         if (cp == null)
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
             return;
         }
 
@@ -68,7 +68,7 @@ public class HomeCommand
         {
             if (!plugin.getPermissionsManager().has(player, "simpleclans.member.home"))
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                 return;
             }
 
@@ -93,13 +93,13 @@ public class HomeCommand
             {
                 if (!cp.isLeader())
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
                     return;
                 }
 
                 if (!plugin.getPermissionsManager().has(player, "simpleclans.leader.home-set"))
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                     return;
                 }
 
@@ -116,13 +116,13 @@ public class HomeCommand
             {
                 if (!cp.isLeader())
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
                     return;
                 }
 
                 if (!plugin.getPermissionsManager().has(player, "simpleclans.leader.home-set"))
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                     return;
                 }
 
@@ -141,12 +141,12 @@ public class HomeCommand
 
                 if (!cp.isLeader())
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.leader.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NoLeaderPermission);
                 }
 
                 if (!plugin.getPermissionsManager().has(player, "simpleclans.leader.regroup"))
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
                 }
 
                 List<ClanPlayer> members = clan.getAllMembers();
@@ -188,7 +188,7 @@ public class HomeCommand
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             }
         }
     }

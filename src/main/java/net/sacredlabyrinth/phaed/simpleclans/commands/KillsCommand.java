@@ -77,7 +77,7 @@ public class KillsCommand
                         {
                             plugin.getStorageManager().addChatBlock(player, chatBlock);
                             ChatBlock.sendBlank(player);
-                            ChatBlock.sendMessage(player, headColor + MessageFormat.format(plugin.getLang("view.next.page"), plugin.getSettingsManager().getCommandMore()));
+                            ChatBlock.sendMessage(player, headColor + MessageFormat.format(SimpleClans.langManager.ViewNextPage, plugin.getSettingsManager().getCommandMore()));
                         }
 
                         ChatBlock.sendBlank(player);
@@ -89,12 +89,12 @@ public class KillsCommand
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("not.a.member.of.any.clan"));
+                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.notMemberAnyClan);
             }
         }
         else
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
         }
     }
 }

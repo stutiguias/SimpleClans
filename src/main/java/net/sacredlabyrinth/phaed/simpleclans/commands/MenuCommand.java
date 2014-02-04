@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MenuCommand
 {
-    private List<String> menuItems = new LinkedList<String>();
+    private List<String> menuItems = new LinkedList<>();
 
     public MenuCommand()
     {
@@ -231,7 +231,7 @@ public class MenuCommand
         }
         if (chatBlock.isEmpty())
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("insufficient.permissions"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.insufficientPermissions);
             return;
         }
 
@@ -245,7 +245,7 @@ public class MenuCommand
         {
             plugin.getStorageManager().addChatBlock(player, chatBlock);
             ChatBlock.sendBlank(player);
-            ChatBlock.sendMessage(player, headColor + MessageFormat.format(plugin.getLang("view.next.page"), plugin.getSettingsManager().getCommandMore()));
+            ChatBlock.sendMessage(player, headColor + MessageFormat.format(SimpleClans.langManager.ViewNextPage, plugin.getSettingsManager().getCommandMore()));
         }
 
         ChatBlock.sendBlank(player);
@@ -267,7 +267,6 @@ public class MenuCommand
 
         ChatBlock chatBlock = new ChatBlock();
 
-        chatBlock.addRow(ChatColor.DARK_RED + "  " + MessageFormat.format(plugin.getLang("0.verify.tag.1.verify.an.unverified.clan"), clanCommand, ChatColor.WHITE));
         chatBlock.addRow(ChatColor.DARK_RED + "  " + MessageFormat.format(plugin.getLang("0.reload.1.reload.configuration"), clanCommand, ChatColor.WHITE));
 
         ChatBlock.sendBlank(sender);

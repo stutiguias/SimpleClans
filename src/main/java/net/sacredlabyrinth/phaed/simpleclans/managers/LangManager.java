@@ -218,6 +218,17 @@ public final class LangManager
     public String NamesRivals;
     public String NamesRivalries;
     public String NamesWar;
+    public String yourClanCannotCreateRivals;
+    public String usageRival;
+    public String minPlayersRivalries;
+    public String ClanCannotBeRivaled;
+    public String yourClansAreNotRivals;
+    public String hasInitiatedRivalry;
+    public String yourClansAreAlreadyRivals;
+    public String rivalLimitReached;
+    public String LastLeaderCannotResignYouMust;
+    public String hasResigned;
+    public String configReload;
     
     public LangManager()
     {
@@ -456,6 +467,17 @@ public final class LangManager
         NamesRivals = getConfig().getString("names.rivals");
         NamesRivalries = getConfig().getString("names.rivalries");
         NamesWar = getConfig().getString("names.war");
+        yourClanCannotCreateRivals = getConfig().getString("your.clan.cannot.create.rivals");
+        usageRival = getConfig().getString("usage.rival");
+        minPlayersRivalries = getConfig().getString("min.players.rivalries");
+        ClanCannotBeRivaled = getConfig().getString("the.clan.cannot.be.rivaled");
+        yourClansAreNotRivals = getConfig().getString("your.clans.are.not.rivals");
+        hasInitiatedRivalry = getConfig().getString("has.initiated.a.rivalry");
+        yourClansAreAlreadyRivals = getConfig().getString("your.clans.are.already.rivals");
+        rivalLimitReached = getConfig().getString("rival.limit.reached");
+        LastLeaderCannotResignYouMust = getConfig().getString("last.leader.cannot.resign.you.must");
+        hasResigned = getConfig().getString("0.has.resigned");
+        configReload = getConfig().getString("configuration.reloaded");
         
         save();
     }
