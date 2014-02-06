@@ -56,22 +56,22 @@ public class InviteCommand
                                         if (plugin.getClanManager().purchaseInvite(player))
                                         {
                                             plugin.getRequestManager().addInviteRequest(cp, invited.getName(), clan);
-                                            ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.been.asked.to.join"), Helper.capitalize(invited.getName()), clan.getName()));
+                                            ChatBlock.sendMessage(player, ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.hasBeenAskedToJoin, Helper.capitalize(invited.getName()), clan.getName()));
                                         }
                                     }
                                     else
                                     {
-                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.is.already.member.of.another.clan"));
+                                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.PlayerAlreadyMemberAnotherClan);
                                     }
                                 }
                                 else
                                 {
-                                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.cannot.invite.yourself"));
+                                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.youCannotInviteYourself);
                                 }
                             }
                             else
                             {
-                                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.doesn.t.not.have.the.permissions.to.join.clans"));
+                                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.thePlayerDoesnNotHavePermissionsJoin);
                             }
                         }
                         else
@@ -81,7 +81,7 @@ public class InviteCommand
                     }
                     else
                     {
-                        ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.invite.player"), plugin.getSettingsManager().getCommandClan()));
+                        ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageInvitePlayer, plugin.getSettingsManager().getCommandClan()));
                     }
                 }
                 else

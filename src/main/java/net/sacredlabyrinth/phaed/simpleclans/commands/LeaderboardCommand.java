@@ -44,13 +44,13 @@ public class LeaderboardCommand
                 ChatBlock chatBlock = new ChatBlock();
 
                 ChatBlock.sendBlank(player);
-                ChatBlock.saySingle(player, plugin.getSettingsManager().getServerName() + subColor + " " + plugin.getLang("leaderboard.command") + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
+                ChatBlock.saySingle(player, plugin.getSettingsManager().getServerName() + subColor + " " + SimpleClans.langManager.leaderboard + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
                 ChatBlock.sendBlank(player);
-                ChatBlock.sendMessage(player, headColor + MessageFormat.format(plugin.getLang("total.clan.players.0"), subColor + clanPlayers.size()));
+                ChatBlock.sendMessage(player, headColor + MessageFormat.format(SimpleClans.langManager.totalClanPlayers, subColor + clanPlayers.size()));
                 ChatBlock.sendBlank(player);
 
                 chatBlock.setAlignment("c", "l", "c", "c", "c", "c");
-                chatBlock.addRow("  " + headColor + plugin.getLang("rank"), plugin.getLang("player"), plugin.getLang("kdr"), plugin.getLang("clan"), plugin.getLang("seen"));
+                chatBlock.addRow("  " + headColor + SimpleClans.langManager.rank, SimpleClans.langManager.player, SimpleClans.langManager.kdr, SimpleClans.langManager.clan, SimpleClans.langManager.seen);
 
                 int rank = 1;
 
@@ -67,9 +67,9 @@ public class LeaderboardCommand
 
 
                     String name = (cp.isLeader() ? plugin.getSettingsManager().getPageLeaderColor() : ((cp.isTrusted() ? plugin.getSettingsManager().getPageTrustedColor() : plugin.getSettingsManager().getPageUnTrustedColor()))) + cp.getName();
-                    String lastSeen = (isOnline ? ChatColor.GREEN + plugin.getLang("online") : ChatColor.WHITE + cp.getLastSeenDaysString());
+                    String lastSeen = (isOnline ? ChatColor.GREEN + SimpleClans.langManager.online : ChatColor.WHITE + cp.getLastSeenDaysString());
 
-                    String clanTag = ChatColor.WHITE + plugin.getLang("free.agent");
+                    String clanTag = ChatColor.WHITE + SimpleClans.langManager.freeAgent;
 
                     if (cp.getClan() != null)
                     {
@@ -98,7 +98,7 @@ public class LeaderboardCommand
         }
         else
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.leaderboard"), plugin.getSettingsManager().getCommandClan()));
+            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageLeaderboard, plugin.getSettingsManager().getCommandClan()));
         }
     }
 }

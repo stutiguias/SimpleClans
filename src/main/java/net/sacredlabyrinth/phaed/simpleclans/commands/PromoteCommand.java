@@ -75,7 +75,7 @@ public class PromoteCommand
 
         if (!clan.isMember(promoted))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.is.not.a.member.of.your.clan"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.PlayerNotMemberOfYourClan);
             return;
         }
 

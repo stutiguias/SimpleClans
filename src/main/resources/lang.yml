@@ -43,8 +43,8 @@ usage:
     ff.allow.auto: "Usage: /{0} ff allow/auto"
     globalff.allow.auto: "Usage: /{0} globalff allow/auto"
     permissionsPlayer: "Usage: /{0} permissions [clan] add/remove [permission]"
-    invitePlayer: "Usage: /{0} invite [player]"
-    kickPlayer: "Usage: /{0} kick [player]"
+    invite.player: "Usage: /{0} invite [player]"
+    kick.player: "Usage: /{0} kick [player]"
     modtagTag: "Usage: /{0} modtag [tag]"
     list: "Usage: /{0} list"
     lookupTag: "Usage: /{0} lookup [tag]"
@@ -109,11 +109,11 @@ names:
     world: World
     kdr: KDR
     members: Members
-    clansLower: clans
+    clans.lower: clans
     rival: Rival
     civilian: Civilian
     neutral: Neutral
-    freeAgent: Free Agent
+    free.agent: Free Agent
     days: days
     rivals: Rivals
     rivalries: rivalries

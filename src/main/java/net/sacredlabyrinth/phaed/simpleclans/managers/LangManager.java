@@ -229,6 +229,31 @@ public final class LangManager
     public String LastLeaderCannotResignYouMust;
     public String hasResigned;
     public String configReload;
+    public String hombaseSet;
+    public String hombaseCleared;
+    public String homeBaseOnlyOnce;
+    public String hombaseNotSet;
+    public String theClanDoesNotExist;
+    public String hombaseModSet;
+    public String usageInvitePlayer;
+    public String thePlayerDoesnNotHavePermissionsJoin;
+    public String youCannotInviteYourself;
+    public String hasBeenAskedToJoin;
+    public String PlayerAlreadyMemberAnotherClan;
+    public String usageKickPlayer;
+    public String youCannotKickYourself;
+    public String youCannotKickAnotherLeader;
+    public String hasBeenKickedBy;
+    public String namesVictim;
+    public String namesKillcount;
+    public String nokillsfound;
+    public String namesKills;
+    public String totalClanPlayers;
+    public String freeAgent;
+    public String usageLeaderboard;
+    public String clansLower;
+    public String menuTotalClans;
+    public String namesMembers;
     
     public LangManager()
     {
@@ -478,6 +503,31 @@ public final class LangManager
         LastLeaderCannotResignYouMust = getConfig().getString("last.leader.cannot.resign.you.must");
         hasResigned = getConfig().getString("0.has.resigned");
         configReload = getConfig().getString("configuration.reloaded");
+        hombaseSet = getConfig().getString("hombase.set");
+        hombaseCleared = getConfig().getString("hombase.cleared");
+        homeBaseOnlyOnce = getConfig().getString("home.base.only.once");
+        hombaseNotSet = getConfig().getString("hombase.not.set");
+        theClanDoesNotExist = getConfig().getString("the.clan.does.not.exist");
+        hombaseModSet = getConfig().getString("hombase.mod.set");
+        usageInvitePlayer = getConfig().getString("usage.invite.player");
+        thePlayerDoesnNotHavePermissionsJoin = getConfig().getString("the.player.doesn.t.not.have.the.permissions.to.join.clans");
+        youCannotInviteYourself = getConfig().getString("you.cannot.invite.yourself");
+        hasBeenAskedToJoin = getConfig().getString("has.been.asked.to.join");
+        PlayerAlreadyMemberAnotherClan = getConfig().getString("the.player.is.already.member.of.another.clan");
+        usageKickPlayer = getConfig().getString("usage.kick.player");
+        youCannotKickYourself = getConfig().getString("you.cannot.kick.yourself");
+        youCannotKickAnotherLeader = getConfig().getString("you.cannot.kick.another.leader");
+        hasBeenKickedBy = getConfig().getString("has.been.kicked.by");
+        namesVictim = getConfig().getString("names.victim");
+        namesKillcount = getConfig().getString("names.killcount");
+        nokillsfound = getConfig().getString("messages.nokillsfound");
+        namesKills = getConfig().getString("names.kills");
+        totalClanPlayers = getConfig().getString("total.clan.players.0");
+        freeAgent = getConfig().getString("names.free.agent");
+        usageLeaderboard = getConfig().getString("usage.leaderboard");
+        clansLower = getConfig().getString("clans.lower");
+        menuTotalClans = getConfig().getString("menu.total.clans");
+        namesMembers = getConfig().getString("names.members");
         
         save();
     }

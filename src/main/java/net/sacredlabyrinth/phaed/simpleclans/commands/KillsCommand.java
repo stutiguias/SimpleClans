@@ -49,13 +49,13 @@ public class KillsCommand
                         chatBlock.setFlexibility(true, false);
                         chatBlock.setAlignment("l", "c");
 
-                        chatBlock.addRow("  " + headColor + plugin.getLang("victim"), plugin.getLang("killcount"));
+                        chatBlock.addRow("  " + headColor + SimpleClans.langManager.namesVictim, SimpleClans.langManager.namesKillcount);
 
                         HashMap<String, Integer> killsPerPlayerUnordered = plugin.getStorageManager().getKillsPerPlayer(polledPlayerName);
 
                         if (killsPerPlayerUnordered.isEmpty())
                         {
-                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("nokillsfound"));
+                            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.nokillsfound);
                             return;
                         }
 
@@ -68,7 +68,7 @@ public class KillsCommand
                             chatBlock.addRow("  " + playerName, ChatColor.AQUA + "" + count);
                         }
 
-                        ChatBlock.saySingle(player, plugin.getSettingsManager().getPageClanNameColor() + Helper.capitalize(polledPlayerName) + subColor + " " + plugin.getLang("kills") + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
+                        ChatBlock.saySingle(player, plugin.getSettingsManager().getPageClanNameColor() + Helper.capitalize(polledPlayerName) + subColor + " " + SimpleClans.langManager.namesKills + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
                         ChatBlock.sendBlank(player);
 
                         boolean more = chatBlock.sendBlock(player, plugin.getSettingsManager().getPageSize());
@@ -84,7 +84,7 @@ public class KillsCommand
                     }
                     else
                     {
-                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("only.trusted.players.can.access.clan.stats"));
+                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.OnlyTrustedPlayersCanAccessClanStats);
                     }
             }
             else

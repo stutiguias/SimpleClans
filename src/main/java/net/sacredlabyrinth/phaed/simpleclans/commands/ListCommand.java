@@ -47,15 +47,15 @@ public class ListCommand
                     ChatBlock chatBlock = new ChatBlock();
 
                     ChatBlock.sendBlank(player);
-                    ChatBlock.saySingle(player, plugin.getSettingsManager().getServerName() + subColor + " " + plugin.getLang("clans.lower") + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
+                    ChatBlock.saySingle(player, plugin.getSettingsManager().getServerName() + subColor + " " + SimpleClans.langManager.clansLower + " " + headColor + Helper.generatePageSeparator(plugin.getSettingsManager().getPageSep()));
                     ChatBlock.sendBlank(player);
-                    ChatBlock.sendMessage(player, headColor + plugin.getLang("total.clans") + " " + subColor + clans.size());
+                    ChatBlock.sendMessage(player, headColor + SimpleClans.langManager.menuTotalClans + " " + subColor + clans.size());
                     ChatBlock.sendBlank(player);
 
                     chatBlock.setAlignment("c", "l", "c", "c");
                     chatBlock.setFlexibility(false, true, false, false);
 
-                    chatBlock.addRow("  " + headColor + plugin.getLang("rank"), plugin.getLang("name"), plugin.getLang("kdr"), plugin.getLang("members"));
+                    chatBlock.addRow("  " + headColor + SimpleClans.langManager.rank, SimpleClans.langManager.name, SimpleClans.langManager.kdr, SimpleClans.langManager.namesMembers );
 
                     int rank = 1;
 

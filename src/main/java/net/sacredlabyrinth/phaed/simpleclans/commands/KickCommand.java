@@ -51,22 +51,22 @@ public class KickCommand
                                 {
                                     if (!clan.isLeader(kicked))
                                     {
-                                        clan.addBb(player.getName(),  ChatColor.AQUA + MessageFormat.format(plugin.getLang("has.been.kicked.by"), Helper.capitalize(kicked), player.getName()));
+                                        clan.addBb(player.getName(),  ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.hasBeenKickedBy, Helper.capitalize(kicked), player.getName()));
                                         clan.removePlayerFromClan(kicked);
                                     }
                                     else
                                     {
-                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.cannot.kick.another.leader"));
+                                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.youCannotKickAnotherLeader);
                                     }
                                 }
                                 else
                                 {
-                                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.is.not.a.member.of.your.clan"));
+                                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.PlayerNotMemberOfYourClan);
                                 }
                             }
                             else
                             {
-                                ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.cannot.kick.yourself"));
+                                ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.youCannotKickYourself);
                             }
                         }
                         else
@@ -76,7 +76,7 @@ public class KickCommand
                     }
                     else
                     {
-                        ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.kick.player"), plugin.getSettingsManager().getCommandClan()));
+                        ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageKickPlayer, plugin.getSettingsManager().getCommandClan()));
                     }
                 }
                 else
