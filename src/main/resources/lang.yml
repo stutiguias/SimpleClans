@@ -47,7 +47,7 @@ usage:
     kick.player: "Usage: /{0} kick [player]"
     modtagTag: "Usage: /{0} modtag [tag]"
     list: "Usage: /{0} list"
-    lookupTag: "Usage: /{0} lookup [tag]"
+    lookup.tag: "Usage: /{0} lookup [tag]"
     profileTag: "Usage: /{0} profile [tag]"
     promoteMember: "Usage: /{0} promote <member>"
     rivalries: "Usage: /{0} rivalries"

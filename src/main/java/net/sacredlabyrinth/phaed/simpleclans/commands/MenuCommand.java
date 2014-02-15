@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class MenuCommand
 {
-    private List<String> menuItems = new LinkedList<>();
+    private final List<String> menuItems = new LinkedList<>();
 
     public MenuCommand()
     {

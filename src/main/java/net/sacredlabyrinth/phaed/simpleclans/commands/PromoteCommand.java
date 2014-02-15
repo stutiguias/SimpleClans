@@ -69,7 +69,7 @@ public class PromoteCommand
 
         if (promoted.getName().equals(player.getName()))
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.cannot.promote.yourself"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.youCannotPromoteYourself);
             return;
         }
 
@@ -81,11 +81,11 @@ public class PromoteCommand
 
         if (clan.isLeader(promoted) && plugin.getSettingsManager().isConfirmationForPromote())
         {
-            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("the.player.is.already.a.leader"));
+            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.thePlayerAlreadyLeader);
             return;
         }
 
-        clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("promoted.to.leader"), Helper.capitalize(promoted.getName())));
+        clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.promotedtoLeader, Helper.capitalize(promoted.getName())));
         clan.promote(promoted.getName());
     }
 }

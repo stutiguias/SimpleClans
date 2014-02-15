@@ -254,6 +254,28 @@ public final class LangManager
     public String clansLower;
     public String menuTotalClans;
     public String namesMembers;
+    public String noClansHaveBeenCreated;
+    public String usageList;
+    public String usageLookupTag;
+    public String menuPlayerInfo;
+    public String menuStatus;
+    public String menuClan;
+    public String menuKDR;
+    public String menuRank;
+    public String namesLeader;
+    public String menuKillTotals;
+    public String menuDeaths;
+    public String menuJoinDate;
+    public String menuKillType;
+    public String menuNoPlayerDataFound;
+    public String menuKillTypeCivilian;
+    public String menuLastSeen;
+    public String menuPastClans;
+    public String menuInactive;
+    public String thePlayerAlreadyLeader;
+    public String youCannotPromoteYourself;
+    public String namesAttacker;
+    public String namesMostKilled;
     
     public LangManager()
     {
@@ -300,7 +322,7 @@ public final class LangManager
         today = getConfig().getString("names.today");
         colorDay = getConfig().getString("color.day");
         manyColorDays = getConfig().getString("many.color.days");
-        none = getConfig().getString("none");
+        none = getConfig().getString("names.none");
         serverAnnounce = getConfig().getString("server.announce");
         accountDebited = getConfig().getString("account.has.been.debited");
         notSufficientMoney = getConfig().getString("not.sufficient.money");
@@ -528,6 +550,28 @@ public final class LangManager
         clansLower = getConfig().getString("clans.lower");
         menuTotalClans = getConfig().getString("menu.total.clans");
         namesMembers = getConfig().getString("names.members");
+        noClansHaveBeenCreated = getConfig().getString("no.clans.have.been.created");
+        usageList = getConfig().getString("usage.list");
+        usageLookupTag = getConfig().getString("usage.lookup.tag");
+        menuPlayerInfo = getConfig().getString("menu.player.info");
+        menuStatus = getConfig().getString("menu.status");
+        menuClan = getConfig().getString("menu.clan");
+        menuRank = getConfig().getString("menu.rank");
+        menuKDR = getConfig().getString("menu.kdr");
+        namesLeader = getConfig().getString("names.leader");
+        menuKillTotals = getConfig().getString("menu.kill.totals");
+        menuDeaths = getConfig().getString("menu.deaths");
+        menuJoinDate = getConfig().getString("menu.join.date");
+        menuKillType = getConfig().getString("menu.kill.type");
+        menuNoPlayerDataFound = getConfig().getString("menu.no.player.data.found");
+        menuKillTypeCivilian = getConfig().getString("menu.kill.type.civilian");
+        menuLastSeen = getConfig().getString("menu.last.seen");
+        menuPastClans = getConfig().getString("menu.past.clans");
+        menuInactive = getConfig().getString("menu.inactive");
+        thePlayerAlreadyLeader = getConfig().getString("the.player.is.already.a.leader");
+        youCannotPromoteYourself = getConfig().getString("you.cannot.promote.yourself");
+        namesAttacker = getConfig().getString("names.attacker");
+        namesMostKilled = getConfig().getString("names.mostkilled");
         
         save();
     }

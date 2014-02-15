@@ -84,12 +84,12 @@ public class ListCommand
                 }
                 else
                 {
-                    ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("no.clans.have.been.created"));
+                    ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.noClansHaveBeenCreated);
                 }
             }
             else
             {
-                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.list"), plugin.getSettingsManager().getCommandClan()));
+                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageList, plugin.getSettingsManager().getCommandClan()));
             }
         }
         else
