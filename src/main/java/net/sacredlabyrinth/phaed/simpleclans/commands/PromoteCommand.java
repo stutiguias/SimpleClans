@@ -89,3 +89,4 @@ public class PromoteCommand
         clan.promote(promoted.getName());
     }
 }
+

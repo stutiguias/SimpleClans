@@ -78,9 +78,10 @@
         <dependency>
             <groupId>net.sacredlabyrinth.Phaed</groupId>
             <artifactId>PreciousStones</artifactId>
-            <version>9.5.7-SNAPSHOT</version>
+            <version>9.6.6</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
     <!-- Repositories -->
