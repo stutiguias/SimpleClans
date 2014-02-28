@@ -276,6 +276,29 @@ public final class LangManager
     public String youCannotPromoteYourself;
     public String namesAttacker;
     public String namesMostKilled;
+    public String createPurchase;
+    public String createCreate;
+    public String helpList;
+    public String usagePromoteMember;
+    public String theMemberPromotedMustOnline;
+    public String thePlayerNotPermissionsLead;
+    public String namesDays;
+    public String usageProfiletag;
+    public String menuMembersOnline;
+    public String namesAllies;
+    public String menuFounded;
+    public String helpProfileView;
+    public String helpProfileTag;
+    public String helpLookup;
+    public String helpLookupPlayer;
+    public String helpLeaderboardView;
+    public String helpAlliances;
+    public String helpRivalries;
+    public String helpRoster;
+    public String helpRosterTag;
+    public String helpStats;
+    public String tagChangedTo;
+    public String OnlyModifyColorTag;
     
     public LangManager()
     {
@@ -572,6 +595,29 @@ public final class LangManager
         youCannotPromoteYourself = getConfig().getString("you.cannot.promote.yourself");
         namesAttacker = getConfig().getString("names.attacker");
         namesMostKilled = getConfig().getString("names.mostkilled");
+        createPurchase = getConfig().getString("help.createPurchase");
+        createCreate = getConfig().getString("help.createCreate");
+        helpList = getConfig().getString("help.list");
+        usagePromoteMember = getConfig().getString("usage.promoteMember");
+        theMemberPromotedMustOnline = getConfig().getString("the.member.to.be.promoted.must.be.online");
+        thePlayerNotPermissionsLead = getConfig().getString("the.player.does.not.have.the.permissions.to.lead.a.clan");
+        namesDays = getConfig().getString("names.days");
+        usageProfiletag = getConfig().getString("usage.profileTag");
+        menuMembersOnline = getConfig().getString("menu.members.online");
+        namesAllies = getConfig().getString("names.allies");
+        menuFounded = getConfig().getString("menu.founded");
+        helpProfileView = getConfig().getString("help.profileView");
+        helpProfileTag = getConfig().getString("help.profileTag");
+        helpLookup = getConfig().getString("help.lookup");
+        helpLookupPlayer = getConfig().getString("help.lookupPlayer");
+        helpLeaderboardView = getConfig().getString("help.leaderboardView");
+        helpAlliances = getConfig().getString("help.alliances");
+        helpRivalries = getConfig().getString("help.rivalries");
+        helpRoster = getConfig().getString("help.roster");
+        helpRosterTag = getConfig().getString("help.roster.tag");
+        helpStats = getConfig().getString("help.stats");
+        tagChangedTo = getConfig().getString("tag.changed.to");
+        OnlyModifyColorTag = getConfig().getString("you.can.only.modify.the.color.and.case.of.the.tag");
         
         save();
     }

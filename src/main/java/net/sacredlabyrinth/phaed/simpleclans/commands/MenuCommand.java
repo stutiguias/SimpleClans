@@ -46,64 +46,56 @@ public class MenuCommand
         {
             if (plugin.getSettingsManager().isePurchaseCreation())
             {
-                chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.create.tag.name.1.purchase.a.new.clan"), clanCommand, ChatColor.WHITE));
+                chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.createPurchase, clanCommand, ChatColor.WHITE));
             }
             else
             {
-                chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.create.tag.name.1.create.a.new.clan"), clanCommand, ChatColor.WHITE));
+                chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.createCreate, clanCommand, ChatColor.WHITE));
             }
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.list"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.list.1.lists.all.clans"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpList, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.member.profile"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.profile.1.view.your.clan.s.profile"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpProfileView, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.profile"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.profile.tag.1.view.a.clan.s.profile"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpProfileTag, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.member.lookup"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.lookup.1.lookup.your.info"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpLookup, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.lookup"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.lookup.player.1.lookup.a.player.s.info"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpLookupPlayer, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.leaderboard"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.leaderboard.1.view.leaderboard"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpLeaderboardView, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.alliances"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.alliances.1.view.all.clan.alliances"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpAlliances, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.rivalries"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.rivalries.1.view.all.clan.rivalries"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpRivalries, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.member.roster"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.roster.1.view.your.clan.s.member.list"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpRoster, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.anyone.roster"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.roster.tag.1.view.a.clan.s.member.list"), clanCommand, ChatColor.WHITE));
-        }
-        if (isTrusted && plugin.getPermissionsManager().has(player, "simpleclans.member.vitals"))
-        {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.vitals.1.view.your.clan.member.s.vitals"), clanCommand, ChatColor.WHITE));
-        }
-        if (isTrusted && plugin.getPermissionsManager().has(player, "simpleclans.member.coords"))
-        {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.coords.1.view.your.clan.member.s.coordinates"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpRosterTag, clanCommand, ChatColor.WHITE));
         }
         if (isTrusted && plugin.getPermissionsManager().has(player, "simpleclans.member.stats"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(plugin.getLang("0.stats.1.view.your.clan.member.s.stats"), clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpStats, clanCommand, ChatColor.WHITE));
         }
         if (isTrusted && plugin.getPermissionsManager().has(player, "simpleclans.member.kills"))
         {

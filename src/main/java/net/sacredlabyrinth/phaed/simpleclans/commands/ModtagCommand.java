@@ -52,13 +52,13 @@ public class ModtagCommand
                                     {
                                         if (cleantag.equals(clan.getTag()))
                                         {
-                                            clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(plugin.getLang("tag.changed.to.0"), Helper.parseColors(newtag)));
+                                            clan.addBb(player.getName(), ChatColor.AQUA + MessageFormat.format(SimpleClans.langManager.tagChangedTo, Helper.parseColors(newtag)));
                                             clan.changeClanTag(newtag);
                                             plugin.getClanManager().updateDisplayName(player.getPlayer());
                                         }
                                         else
                                         {
-                                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("you.can.only.modify.the.color.and.case.of.the.tag"));
+                                            ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.OnlyModifyColorTag);
                                         }
                                     }
                                     else

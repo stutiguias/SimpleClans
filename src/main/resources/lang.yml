@@ -270,7 +270,7 @@ menu:
     kill.totals: "Kill Totals:"
     name: "Name: {0}"
     leaders: "Leaders: {0}"
-    members.online.0: "Members Online: {0}"
+    members.online: "Members Online: {0}"
     allies: "Allies: {0}"
     rivals: "Rivals: {0}"
     founded: "Founded: {0}"	
