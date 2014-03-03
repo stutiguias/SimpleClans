@@ -66,13 +66,14 @@ public class SimpleClans extends JavaPlugin {
 
         logger.info(MessageFormat.format("Simple Clan {0} - LITE Loaded", getDescription().getVersion()));
 
+        langManager = new LangManager();
         permissionsManager = new PermissionsManager();
         requestManager = new RequestManager();
         clanManager = new ClanManager();
         storageManager = new StorageManager();
         commandManager = new CommandManager();
         teleportManager = new TeleportManager();
-        langManager = new LangManager();
+        
         
         getServer().getPluginManager().registerEvents(new SCEntityListener(), this);
         getServer().getPluginManager().registerEvents(new SCPlayerListener(), this);

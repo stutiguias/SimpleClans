@@ -63,24 +63,23 @@ public class ModtagCommand
                                     }
                                     else
                                     {
-                                        ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("your.clan.tag.can.only.contain.letters.numbers.and.color.codes"));
+                                        ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.TagCanOnlyContainLettersNumbersColorCodes);
                                     }
                                 }
                                 else
                                 {
-                                    ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("your.tag.cannot.contain.the.following.colors"), plugin.getSettingsManager().getDisallowedColorString()));
+                                    ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.TagCannotContainFollowingColors, plugin.getSettingsManager().getDisallowedColorString()));
                                 }
 
                             }
                             else
                             {
-                                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("your.clan.tag.cannot.be.longer.than.characters"), plugin.getSettingsManager().getTagMaxLength()));
+                                ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.ClanTagCannotBeLongerCharacters, plugin.getSettingsManager().getTagMaxLength()));
                             }
                         }
                         else
                         {
-                            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(plugin.getLang("usage.0.modtag.tag"), plugin.getSettingsManager().getCommandClan()));
-                            ChatBlock.sendMessage(player, ChatColor.RED + plugin.getLang("example.clan.modtag.4kfo.4l"));
+                            ChatBlock.sendMessage(player, ChatColor.RED + MessageFormat.format(SimpleClans.langManager.usageModtagTag, plugin.getSettingsManager().getCommandClan()));
                         }
                     }
                     else
