@@ -659,20 +659,7 @@ public final class LangManager
         helpDisband = config.getString("help.disband");
         helpMostkilled = config.getString("help.mostkilled");
         helpGlobalff = config.getString("help.globalff");
-        
-        save();
-    }
 
-    public void save()
-    {
-        try
-        {
-            getConfig().save(main);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
     }
 
     /**
