@@ -89,13 +89,13 @@ public class CreateCommand
     
     private boolean isValidCreateWithoutByPass(Player player,String tag,String cleanTag,String name) 
     {
-        if (cleanTag.matches("[0-9a-zA-Z]*"))
+        if (!cleanTag.matches("[0-9a-zA-Z]*"))
         {
             ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.TagCanOnlyContainLettersNumbersColorCodes);
             return false;
         }
         
-        if (!name.contains("&"))
+        if (name.contains("&"))
         {
             ChatBlock.sendMessage(player, ChatColor.RED + SimpleClans.langManager.NameCannotContainColorCodes);
             return false;

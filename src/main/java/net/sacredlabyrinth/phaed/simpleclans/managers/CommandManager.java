@@ -272,6 +272,7 @@ public final class CommandManager
             {
                 System.out.print(el.toString());
             }
+            ex.printStackTrace();
         }
     }
 

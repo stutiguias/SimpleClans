@@ -628,7 +628,7 @@ public final class LangManager
         helpAlliances = config.getString("help.alliances");
         helpRivalries = config.getString("help.rivalries");
         helpRoster = config.getString("help.roster");
-        helpRosterTag = config.getString("help.roster.tag");
+        helpRosterTag = config.getString("help.rosterTag");
         helpStats = config.getString("help.stats");
         tagChangedTo = config.getString("tag.changed.to");
         OnlyModifyColorTag = config.getString("you.can.only.modify.the.color.and.case.of.the.tag");
@@ -649,7 +649,7 @@ public final class LangManager
         helpInvitePlayer = config.getString("help.invitePlayer");
         helpKickPlayer = config.getString("help.kickPlayer");
         helpTrust = config.getString("help.trust");
-        helpUntrust = config.getString("help.Untrust");
+        helpUntrust = config.getString("help.untrust");
         helpPromoteMember = config.getString("help.promoteMember");
         helpDemoteLeader = config.getString("help.demoteLeader");
         helpSetrank = config.getString("help.setrank");

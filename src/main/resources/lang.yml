@@ -69,7 +69,7 @@ help:
     alliances: "/{0} alliances{1} - View all clan alliances"
     rivalries: "/{0} rivalries{1} - View all clan rivalries"
     roster: "/{0} roster{1} - View your clan''s member list"
-    roster.tag: "/{0} roster [tag]{1} - View a clan''s member list"
+    rosterTag: "/{0} roster [tag]{1} - View a clan''s member list"
     stats: "/{0} stats{1} - View your clan member''s stats"
     allyAddRemove: "/{0} ally add/remove [tag]{1} - Add/remove an ally clan"
     rivalAddRemove: "/{0} rival add/remove [tag]{1} - Add/remove a rival clan"
