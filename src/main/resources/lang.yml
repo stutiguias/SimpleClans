@@ -59,7 +59,7 @@ usage:
 help:
     reload: "/{0} reload{1} - Reload configuration"
     globalff: "/{0} globalff allow/auto {1} - Set global friendly fire"
-    disband: "/{0} disband [tag]{1} - Disband a clan"
+    disbandAdm: "/{0} disband [tag]{1} - Disband a clan"
     list: "/{0} list{1} - Lists all clans"
     profileView: "/{0} profile{1} - View your clan''s profile"
     profileTag: "/{0} profile [tag]{1} - View a clan''s profile"

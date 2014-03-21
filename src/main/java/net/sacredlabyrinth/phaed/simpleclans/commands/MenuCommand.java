@@ -119,7 +119,7 @@ public class MenuCommand
         }
         if (isLeader && plugin.getPermissionsManager().has(player, "simpleclans.leader.home-set"))
         {
-            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpHomeMenu, clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.AQUA + "  " + MessageFormat.format(SimpleClans.langManager.helpHomeSetMenu, clanCommand, ChatColor.WHITE));
         }
         if (isLeader && plugin.getPermissionsManager().has(player, "simpleclans.leader.war"))
         {
@@ -211,7 +211,7 @@ public class MenuCommand
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.mod.disband"))
         {
-            chatBlock.addRow(ChatColor.DARK_RED + "  " + MessageFormat.format(SimpleClans.langManager.helpDisband, clanCommand, ChatColor.WHITE));
+            chatBlock.addRow(ChatColor.DARK_RED + "  " + MessageFormat.format(SimpleClans.langManager.helpDisbandAdm, clanCommand, ChatColor.WHITE));
         }
         if (plugin.getPermissionsManager().has(player, "simpleclans.mod.globalff"))
         {

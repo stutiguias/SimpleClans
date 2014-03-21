@@ -332,6 +332,7 @@ public final class LangManager
     public String menuName;
     public String menuAllies;
     public String menuRivals;
+    public String helpDisbandAdm;
     
     public LangManager()
     {
@@ -667,6 +668,8 @@ public final class LangManager
         menuName = config.getString("menu.name"); 
         menuAllies = config.getString("menu.allies");
         menuRivals = config.getString("menu.rivals");
+        helpDisbandAdm = config.getString("help.disbandAdm");
+        
     }
 
     /**
