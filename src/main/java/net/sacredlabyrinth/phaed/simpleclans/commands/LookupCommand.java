@@ -96,7 +96,7 @@ public class LookupCommand
                 ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuRank, rank));
                 ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuStatus, status));
                 ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuKDR, kdr));
-                ChatBlock.sendMessage(player, "  " + subColor + SimpleClans.langManager.menuKillTotals + " " + headColor + "[" + SimpleClans.langManager.rival + ":" + rival + " " + headColor + "" + SimpleClans.langManager.neutral + ":" + neutral + " " + headColor + "" + SimpleClans.langManager.civilian + ":" + civilian + headColor + "]");
+                ChatBlock.sendMessage(player, "  " + subColor + SimpleClans.langManager.menuKillTotals + " " + headColor + "[ " + SimpleClans.langManager.rival + ": " + rival + " " + headColor + "" + SimpleClans.langManager.neutral + ": " + neutral + " " + headColor + "" + SimpleClans.langManager.civilian + ": " + civilian + headColor + " ]");
                 ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuDeaths, deaths));
                 ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuJoinDate, joinDate));
                 ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuLastSeen, lastSeen));

@@ -528,13 +528,13 @@ public final class LangManager
         usageStats = config.getString("usage.stats");
         NamesStats = config.getString("names.stats");
         kdr = config.getString("names.kdr");
-        killDeathRatio = config.getString("kill.death.ratio");
+        killDeathRatio = config.getString("messages.kill.death.ratio");
         weights = config.getString("names.weights");
         NamesRival = config.getString("names.rival");
         neutral = config.getString("names.neutral");
         civilian = config.getString("names.civilian");
         name = config.getString("names.name");
-        civilianAbbreviation = config.getString("civilian.abbreviation");
+        civilianAbbreviation = config.getString("names.civilianabbreviation");
         NamesDeath = config.getString("names.deaths");
         usageSetRank = config.getString("usage.setrank");
         PlayerRankChanged = config.getString("player.rank.changed");

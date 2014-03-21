@@ -127,7 +127,7 @@ names:
     weights: Weights
     stats: stats
     profile: profile
-    civilian.abbreviation: Civ
+    civilianabbreviation: Civ
     rank: Rank
     leaders: Leaders
     none: None

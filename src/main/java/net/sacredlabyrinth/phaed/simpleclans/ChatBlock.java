@@ -18,10 +18,10 @@ import java.util.regex.Pattern;
 public class ChatBlock
 {
     private static final int lineLength = 319;
-    private final ArrayList<Boolean> columnFlexes = new ArrayList<Boolean>();
-    private final ArrayList<Integer> columnSizes = new ArrayList<Integer>();
-    private final ArrayList<String> columnAlignments = new ArrayList<String>();
-    private final LinkedList<String[]> rows = new LinkedList<String[]>();
+    private final ArrayList<Boolean> columnFlexes = new ArrayList<>();
+    private final ArrayList<Integer> columnSizes = new ArrayList<>();
+    private final ArrayList<String> columnAlignments = new ArrayList<>();
+    private final LinkedList<String[]> rows = new LinkedList<>();
     private String color = "";
     /**
      *
@@ -195,7 +195,7 @@ public class ChatBlock
                 continue;
             }
 
-            List<String> measuredCols = new ArrayList<String>();
+            List<String> measuredCols = new ArrayList<>();
             String row[] = rows.pollFirst();
 
             for (int sid = 0; sid < row.length; sid++)
@@ -308,8 +308,6 @@ public class ChatBlock
             {
                 finalString += measured;
             }
-
-            // crop and print out
 
             String msg = cropRightToFit((prefix_used ? empty_prefix : prefix + " ") + finalString, lineLength);
 
@@ -504,6 +502,7 @@ public class ChatBlock
     private static double msgLength(String str)
     {
         double length = 0;
+        if(str == null) return 0;
         str = cleanColors(str);
 
         // Loop through all the characters, skipping any color characters and their following color codes
