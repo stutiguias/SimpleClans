@@ -328,6 +328,10 @@ public final class LangManager
     public String helpDisband;
     public String helpMostkilled;
     public String helpGlobalff;
+    public String menuLeaders;
+    public String menuName;
+    public String menuAllies;
+    public String menuRivals;
     
     public LangManager()
     {
@@ -659,7 +663,10 @@ public final class LangManager
         helpDisband = config.getString("help.disband");
         helpMostkilled = config.getString("help.mostkilled");
         helpGlobalff = config.getString("help.globalff");
-
+        menuLeaders = config.getString("menu.leaders");
+        menuName = config.getString("menu.name"); 
+        menuAllies = config.getString("menu.allies");
+        menuRivals = config.getString("menu.rivals");
     }
 
     /**

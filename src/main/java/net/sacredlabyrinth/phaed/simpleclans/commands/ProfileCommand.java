@@ -93,14 +93,14 @@ public class ProfileCommand
             String neutral = ChatColor.WHITE + "" + clan.getTotalNeutral();
             String civ = ChatColor.WHITE + "" + clan.getTotalCivilian();
 
-            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.name, name));
-            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.namesLeader, leaders));
+            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuName, name));
+            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuLeaders, leaders));
             ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuMembersOnline, membersOnline));
             ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuKDR, kdr));
             ChatBlock.sendMessage(player, "  " + subColor + SimpleClans.langManager.menuKillTotals + " " + headColor + "[" + SimpleClans.langManager.rival + ":" + rival + " " + headColor + "" + SimpleClans.langManager.neutral + ":" + neutral + " " + headColor + "" + SimpleClans.langManager.civilian + ":" + civ + headColor + "]");
             ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuDeaths, deaths));
-            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.namesAllies, allies));
-            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.NamesRivals, rivals));
+            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuAllies, allies));
+            ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuRivals, rivals));
             ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuFounded, founded));
             ChatBlock.sendMessage(player, "  " + subColor + MessageFormat.format(SimpleClans.langManager.menuInactive, inactive));
 
